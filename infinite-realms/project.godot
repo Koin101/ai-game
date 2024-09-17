@@ -11,13 +11,23 @@ config_version=5
 [application]
 
 config/name="Infinite Realms"
-run/main_scene="res://Scenes/main_game.tscn"
+run/main_scene="res://Scenes/entry_scene.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="viewport"
 
 [dotnet]
 
 project/assembly_name="Infinite Realms"
+
+[editor]
+
+run/main_run_args="--render"
 
 [input]
 
