@@ -8,10 +8,13 @@ public partial class MainCharacter : CharacterBody2D
 
 	private AnimatedSprite2D _animatedSprite;
 	private bool _isJumping = false;
+	private Vector2 _initialPosition;
 	public override void _Ready()
 	{
 		_animatedSprite = GetNode<AnimatedSprite2D>("MainCharAnimation");
-	}
+        // Store the character's initial position
+        _initialPosition = Position;
+    }
 	
 	public override void _PhysicsProcess(double delta)
 	{
@@ -69,5 +72,10 @@ public partial class MainCharacter : CharacterBody2D
 
 		Velocity = velocity;
 		MoveAndSlide();
-	}
+        if (Position.Y > GetTree().Root.Size.Y)
+        {
+            Position = _initialPosition;
+        }
+
+    }
 }
