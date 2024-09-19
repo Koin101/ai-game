@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://bsgwt4sk1olkf"]
+[gd_scene load_steps=4 format=4 uid="uid://bsgwt4sk1olkf"]
 
 [ext_resource type="PackedScene" uid="uid://onjjv5yuwemt" path="res://Scenes/main_character.tscn" id="1_0ejjs"]
 [ext_resource type="TileSet" uid="uid://dhuc2415b23j1" path="res://Assets/TileSets/TilesAndProps.tres" id="1_3p4lm"]
+[ext_resource type="PackedScene" uid="uid://caessfsr6nmv8" path="res://NPC.tscn" id="3_m21kn"]
 
 [node name="MainGame" type="Node2D"]
 
@@ -19,3 +20,7 @@ position = Vector2(71, -14)
 [node name="Camera2D" type="Camera2D" parent="MainCharacter"]
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
+
+[node name="NPC" parent="." instance=ExtResource("3_m21kn")]
+texture_filter = 1
+position = Vector2(1, -184)
