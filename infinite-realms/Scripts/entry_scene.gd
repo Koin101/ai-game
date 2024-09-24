@@ -2,8 +2,8 @@ extends Node
 
 func _ready():
 
-	var render = true
-	var args = OS.get_cmdline_user_args()
+	var render = false
+	var args = OS.get_cmdline_args()
 	print(args)
 	for arg in args:
 		print(arg)
@@ -19,7 +19,7 @@ func _ready():
 		await get_tree().create_timer(1).timeout
 		instance.render()
 	else:
-		get_tree().quit()
+		get_tree().change_scene_to_file("res://Scenes/Levels/Level1.tscn")
 
 func _on_render_completed():
 	print("Render completed, unloading")
