@@ -25,10 +25,6 @@ window/stretch/mode="viewport"
 
 project/assembly_name="Infinite Realms"
 
-[editor]
-
-run/main_run_args="--render"
-
 [global_group]
 
 Player=""

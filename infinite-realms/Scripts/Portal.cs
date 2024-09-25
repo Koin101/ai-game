@@ -19,7 +19,7 @@ public partial class Portal : Area2D
             }
             
             currentScene = FILE_PATH + currentLevel.ToString() + ".tscn";
-
+            
             GetTree().CallDeferred("change_scene_to_file", currentScene);
         }
     }
