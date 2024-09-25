@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=4 uid="uid://rpddhisvuadb"]
+[gd_scene load_steps=5 format=4 uid="uid://rpddhisvuadb"]
 
 [ext_resource type="Texture2D" uid="uid://sthtpe644oc6" path="res://Assets/LevelBackgrounds/Level2.png" id="1_jqavm"]
 [ext_resource type="TileSet" uid="uid://dhuc2415b23j1" path="res://Assets/TileSets/TilesAndProps.tres" id="2_if12c"]
 [ext_resource type="PackedScene" uid="uid://onjjv5yuwemt" path="res://Scenes/main_character.tscn" id="3_8tge7"]
+[ext_resource type="PackedScene" uid="uid://bni8ve2207jdf" path="res://Scenes/portal.tscn" id="4_hluxj"]
 
 [node name="Level2" type="Node2D"]
 
@@ -18,3 +19,6 @@ tile_set = ExtResource("2_if12c")
 
 [node name="MainCharacter" parent="." instance=ExtResource("3_8tge7")]
 position = Vector2(21, 429)
+
+[node name="Portal" parent="." instance=ExtResource("4_hluxj")]
+position = Vector2(424, 441)
