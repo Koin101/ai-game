@@ -104,7 +104,7 @@ animations = [{
 radius = 6.0
 height = 28.0
 
-[node name="MainCharacter" type="CharacterBody2D"]
+[node name="MainCharacter" type="CharacterBody2D" groups=["Player"]]
 z_index = 5
 script = ExtResource("1_kndm0")
 
