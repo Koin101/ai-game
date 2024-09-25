@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://u5uywlor0wym"]
+
+[ext_resource type="Texture2D" uid="uid://bctaf7s2hnxw6" path="res://Assets/UI/inventory-background.png" id="1_5pted"]
+[ext_resource type="Script" path="res://Dialogue.cs" id="2_3ive7"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_right = 101.0
+offset_bottom = 22.0
+texture = ExtResource("1_5pted")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="NPCText" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 306.0
+offset_bottom = 62.0
+scale = Vector2(0.3, 0.3)
+text = "Hello there"
+scroll_active = false
+tab_size = 1
+script = ExtResource("2_3ive7")

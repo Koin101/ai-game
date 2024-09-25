@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://caessfsr6nmv8"]
+[gd_scene load_steps=10 format=3 uid="uid://7ij0oikgdgrb"]
 
 [ext_resource type="Texture2D" uid="uid://ciaghsdmix784" path="res://Assets/Sprites/2 Punk/Idle.png" id="1_e8kkj"]
 [ext_resource type="Script" path="res://Npc.cs" id="1_mta1q"]
