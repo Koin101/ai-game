@@ -29,6 +29,10 @@ project/assembly_name="Infinite Realms"
 
 run/main_run_args="--render"
 
+[global_group]
+
+Player=""
+
 [input]
 
 Move_Left={
