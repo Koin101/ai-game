@@ -4,7 +4,7 @@ using System;
 public partial class MainCharacter : CharacterBody2D
 {
 	public const float Speed = 150.0f;
-	public const float JumpVelocity = -320.0f;
+	public const float JumpVelocity = -380.0f;
 
 	private AnimatedSprite2D _animatedSprite;
 	private bool _isJumping = false;
@@ -25,6 +25,12 @@ public partial class MainCharacter : CharacterBody2D
 			return;
 		}
 		Vector2 velocity = Velocity;
+
+		if (Input.IsActionJustPressed("TogglePlatformVisibility"))
+		{
+			var currentScene = GetTree().CurrentScene;
+			currentScene.GetNode<TileMapLayer>("PlatformLayer").Visible = !currentScene.GetNode<TileMapLayer>("PlatformLayer").Visible;
+		}
 
 		// Add the gravity.
 		if (!IsOnFloor())

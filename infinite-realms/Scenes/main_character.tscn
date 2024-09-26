@@ -104,14 +104,14 @@ animations = [{
 radius = 6.0
 height = 28.0
 
-[node name="MainCharacter" type="CharacterBody2D"]
+[node name="MainCharacter" type="CharacterBody2D" groups=["Player"]]
 z_index = 5
 script = ExtResource("1_kndm0")
 
 [node name="MainCharAnimation" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2.58, -9.795)
 sprite_frames = SubResource("SpriteFrames_ofaqr")
-animation = &"Jumping"
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_2ba1f")
