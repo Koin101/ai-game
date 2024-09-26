@@ -8,13 +8,22 @@ public partial class MainCharacter : CharacterBody2D
 
 	private AnimatedSprite2D _animatedSprite;
 	private bool _isJumping = false;
+	private bool _isChatting = false;
+	private Vector2 _initialPosition;
 	public override void _Ready()
 	{
 		_animatedSprite = GetNode<AnimatedSprite2D>("MainCharAnimation");
+		// Store the character's initial position
+		_initialPosition = Position;
 	}
-	
+
 	public override void _PhysicsProcess(double delta)
 	{
+		if (_isChatting)
+		{
+			_animatedSprite.Play("Idle");
+			return;
+		}
 		Vector2 velocity = Velocity;
 
 		if (Input.IsActionJustPressed("TogglePlatformVisibility"))
@@ -36,7 +45,7 @@ public partial class MainCharacter : CharacterBody2D
 			_isJumping = true;
 			_animatedSprite.Play("Jumping");
 		}
-		else if(IsOnFloor()) _isJumping = false;
+		else if (IsOnFloor()) _isJumping = false;
 
 
 
@@ -69,11 +78,27 @@ public partial class MainCharacter : CharacterBody2D
 		else
 		{
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
-			if(!_isJumping)
+			if (!_isJumping)
 				_animatedSprite.Play("Idle");
 		}
 
 		Velocity = velocity;
 		MoveAndSlide();
+		if (Position.Y > GetTree().Root.Size.Y)
+		{
+			Position = _initialPosition;
+		}
+	}
+	public void EnterChatMode()
+	{
+		_isChatting = true;
+	}
+
+	public void ExitChatMode()
+	{
+		_isChatting = false;
 	}
 }
+
+
+
