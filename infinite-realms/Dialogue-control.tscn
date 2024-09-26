@@ -1,19 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://u5uywlor0wym"]
+[gd_scene load_steps=4 format=3 uid="uid://u5uywlor0wym"]
 
+[ext_resource type="Script" path="res://DialogueControl.cs" id="1_0ogjw"]
 [ext_resource type="Texture2D" uid="uid://bctaf7s2hnxw6" path="res://Assets/UI/inventory-background.png" id="1_5pted"]
-[ext_resource type="Script" path="res://Dialogue.cs" id="2_3ive7"]
+[ext_resource type="Texture2D" uid="uid://bxeapec4bvam5" path="res://Assets/UI/arrow-down-3101.png" id="3_d5314"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_0ogjw")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 0
 offset_left = 3.0
-offset_right = 101.0
-offset_bottom = 22.0
+offset_top = -8.0
+offset_right = 157.0
+offset_bottom = 28.0
 texture = ExtResource("1_5pted")
 patch_margin_left = 3
 patch_margin_top = 3
@@ -24,10 +27,19 @@ patch_margin_bottom = 3
 layout_mode = 0
 offset_left = 3.0
 offset_top = 2.0
-offset_right = 306.0
-offset_bottom = 62.0
-scale = Vector2(0.3, 0.3)
+offset_right = 373.0
+offset_bottom = 82.0
+scale = Vector2(0.4, 0.4)
 text = "Hello there"
 scroll_active = false
 tab_size = 1
-script = ExtResource("2_3ive7")
+
+[node name="MoreTextIndicator" type="TextureRect" parent="NinePatchRect"]
+texture_filter = 2
+layout_mode = 0
+offset_left = 137.0
+offset_top = 27.0
+offset_right = 146.0
+offset_bottom = 33.0
+texture = ExtResource("3_d5314")
+expand_mode = 1

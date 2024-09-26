@@ -87,6 +87,11 @@ public partial class MainCharacter : CharacterBody2D
 	{
 		_isChatting = true;
 	}
+
+	public void ExitChatMode()
+	{
+		_isChatting = false;
+	}
 }
 
 
