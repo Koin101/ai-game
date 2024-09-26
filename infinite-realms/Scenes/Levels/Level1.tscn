@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://tqafr5emubxp"]
+[gd_scene load_steps=8 format=4 uid="uid://tqafr5emubxp"]
 
 [ext_resource type="Script" path="res://Scripts/Level1.cs" id="1_hkpet"]
 [ext_resource type="Texture2D" uid="uid://l4upjfall6fc" path="res://Assets/LevelBackgrounds/Level1.png" id="2_83lxm"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://onjjv5yuwemt" path="res://Scenes/main_character.tscn" id="3_nlhtj"]
 [ext_resource type="PackedScene" path="res://Scenes/portal.tscn" id="5_purqx"]
 [ext_resource type="PackedScene" path="res://Scenes/Border768x512.tscn" id="6_7b1dw"]
+[ext_resource type="PackedScene" uid="uid://ch8tx3ibk3qvj" path="res://NPC.tscn" id="7_afwcn"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_hkpet")
@@ -30,3 +31,6 @@ position_smoothing_enabled = true
 position = Vector2(118, 188)
 
 [node name="Border" parent="." instance=ExtResource("6_7b1dw")]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("7_afwcn")]
+position = Vector2(128, 312)
