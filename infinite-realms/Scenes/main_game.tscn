@@ -1,12 +1,29 @@
-[gd_scene load_steps=5 format=4 uid="uid://bsgwt4sk1olkf"]
+[gd_scene load_steps=5 format=4 uid="uid://bmo8ftm241app"]
 
 [ext_resource type="PackedScene" uid="uid://onjjv5yuwemt" path="res://Scenes/main_character.tscn" id="1_0ejjs"]
 [ext_resource type="TileSet" uid="uid://dhuc2415b23j1" path="res://Assets/TileSets/TilesAndProps.tres" id="1_3p4lm"]
-[ext_resource type="Script" path="res://Scripts/MainGame.cs" id="1_hsh8m"]
 [ext_resource type="PackedScene" uid="uid://ch8tx3ibk3qvj" path="res://NPC.tscn" id="3_m21kn"]
 
+[sub_resource type="CSharpScript" id="CSharpScript_p85j4"]
+script/source = "using Godot;
+using System;
+
+public partial class MainGame : Node2D
+{
+	// Called when the node enters the scene tree for the first time.
+	public override void _Ready()
+	{
+	}
+
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _Process(double delta)
+	{
+	}
+}
+"
+
 [node name="MainGame" type="Node2D"]
-script = ExtResource("1_hsh8m")
+script = SubResource("CSharpScript_p85j4")
 
 [node name="DecorationLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD7//P/AQAAAAIAAAD7//T/AQAAAAMAAAD7//X/AQAAAAQAAAD8//P/AQABAAIAAAD8//T/AQABAAMAAAD8//X/AQABAAQAAAATAP3/AQADAAAAAAATAP7/AQADAAEAAAAUAP3/AQAEAAAAAAAUAP7/AQAEAAEAAAD2/wAAAQADAAAAAAD2/wEAAQADAAEAAAD3/wAAAQAEAAAAAAD3/wEAAQAEAAEAAAD5/wAAAQAFAAsAAAD5/wEAAQAFAAwAAAD6/wAAAQAGAAsAAAD6/wEAAQAGAAwAAAD7/wAAAQAHAAsAAAD7/wEAAQAHAAwAAAD8/wAAAQAFAAsAAAD8/wEAAQAFAAwAAAD9/wAAAQAGAAsAAAD9/wEAAQAGAAwAAAD+/wAAAQAHAAsAAAD+/wEAAQAHAAwAAAADAPv/AQAAAAkAAAAEAPv/AQABAAkAAAAFAPv/AQACAAkAAAAGAPv/AQADAAkAAAADAPz/AQAAAAoAAAADAP3/AQAAAAsAAAADAP7/AQAAAAwAAAADAP//AQAAAA0AAAD6//j/AQAFAAYAAAD6//n/AQAFAAcAAAD6//r/AQAFAAgAAAD6//v/AQAFAAkAAAD6//z/AQAFAAoAAAD7//j/AQAGAAYAAAD7//n/AQAGAAcAAAD7//r/AQAGAAgAAAD7//v/AQAGAAkAAAD7//z/AQAGAAoAAAD9//n/AQADAAQAAAD9//r/AQADAAUAAAD+//n/AQAEAAQAAAD+//r/AQAEAAUAAAD///n/AQAFAAQAAAD///r/AQAFAAUAAAAAAPn/AQAGAAQAAAAAAPr/AQAGAAUAAAD+//j/AQAFAAYAAAD///j/AQAGAAYAAAD9//j/AQAHAAYAAAAAAPj/AQAHAAYAAAASAP3/AQACAAIAAAASAP7/AQACAAMAAAA=")
