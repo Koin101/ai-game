@@ -1,5 +1,9 @@
 using Godot;
+using Godot.Collections;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 public partial class MainCharacter : CharacterBody2D
 {
@@ -9,10 +13,17 @@ public partial class MainCharacter : CharacterBody2D
 	private AnimatedSprite2D _animatedSprite;
 	private bool _isJumping = false;
 	private bool _isChatting = false;
+	private readonly System.Collections.Generic.Dictionary<String, AudioStreamPlayer2D> _sounds = new();
 	private Vector2 _initialPosition;
 	public override void _Ready()
 	{
 		_animatedSprite = GetNode<AnimatedSprite2D>("MainCharAnimation");
+		var sounds = this.FindChildren("*", "AudioStreamPlayer2D");
+		foreach ( var sound in sounds )
+		{
+			_sounds.Add(sound.Name, (AudioStreamPlayer2D)sound);
+		}
+		
 		// Store the character's initial position
 		_initialPosition = Position;
 	}
@@ -44,6 +55,9 @@ public partial class MainCharacter : CharacterBody2D
 			velocity.Y = JumpVelocity;
 			_isJumping = true;
 			_animatedSprite.Play("Jumping");
+			_sounds["JumpSound"].Play();
+			_sounds["RunningSound"].Stop();
+
 		}
 		else if (IsOnFloor()) _isJumping = false;
 
@@ -64,6 +78,11 @@ public partial class MainCharacter : CharacterBody2D
 					_ => _animatedSprite.FlipH
 				};
 				_animatedSprite.Play("Running");
+				if (!_sounds["RunningSound"].Playing)
+				{
+					_sounds["RunningSound"].Play();
+				}
+				
 			}
 			else
 			{
@@ -79,7 +98,11 @@ public partial class MainCharacter : CharacterBody2D
 		{
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
 			if (!_isJumping)
+			{
 				_animatedSprite.Play("Idle");
+				_sounds["RunningSound"].Stop();
+			}
+				
 		}
 
 		Velocity = velocity;
@@ -99,6 +122,3 @@ public partial class MainCharacter : CharacterBody2D
 		_isChatting = false;
 	}
 }
-
-
-
