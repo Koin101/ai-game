@@ -10,15 +10,15 @@ public partial class MainCharacter : CharacterBody2D
 	public const float Speed = 300.0f;
 	public const float JumpVelocity = -380.0f;
 
-	private AnimatedSprite2D _animatedSprite;
-	private bool _isJumping = false;
-	private bool _isChatting = false;
-	private readonly System.Collections.Generic.Dictionary<String, AudioStreamPlayer2D> _sounds = new();
-	private Vector2 _initialPosition;
-    public bool climbing = false;
-    public override void _Ready()
+	public AnimatedSprite2D _animatedSprite;
+	public bool _isJumping = false;
+	public bool _isChatting = false;
+	public readonly System.Collections.Generic.Dictionary<String, AudioStreamPlayer2D> _sounds = new();
+	public Vector2 _initialPosition;
+	public bool climbing = false;
+	public override void _Ready()
 	{
-		_animatedSprite = GetNode<AnimatedSprite2D>("MainCharAnimation");
+		//_animatedSprite = GetNode<AnimatedSprite2D>("MainCharAnimation");
 		var sounds = this.FindChildren("*", "AudioStreamPlayer2D");
 		foreach ( var sound in sounds )
 		{
@@ -59,11 +59,23 @@ public partial class MainCharacter : CharacterBody2D
 			if (Input.IsActionPressed("Move_Up"))
 			{
 				velocity.Y = -Speed;
-			}
-
-			if (Input.IsActionPressed("Move_Down"))
+				if (!_sounds["ClimbingSound"].Playing)
+				{
+					_sounds["ClimbingSound"].Play();
+					_sounds["RunningSound"].Stop();
+				}
+				
+			} else if (Input.IsActionPressed("Move_Down"))
 			{
 				velocity.Y = Speed;
+				if (!_sounds["ClimbingSound"].Playing)
+				{
+					_sounds["ClimbingSound"].Play();
+					_sounds["RunningSound"].Stop();
+				}
+			} else
+			{
+				_sounds["ClimbingSound"].Stop();
 			}
 		}
 
@@ -87,7 +99,7 @@ public partial class MainCharacter : CharacterBody2D
 		{
 			velocity.X = direction.X * Speed;
 			velocity.X = direction.X * Speed;
-			if (!_isJumping)
+			if (!_isJumping && !climbing)
 			{
 				_animatedSprite.FlipH = direction.X switch
 				{
@@ -99,6 +111,7 @@ public partial class MainCharacter : CharacterBody2D
 				if (!_sounds["RunningSound"].Playing)
 				{
 					_sounds["RunningSound"].Play();
+					_sounds["ClimbingSound"].Stop();
 				}
 				
 			}
@@ -119,6 +132,7 @@ public partial class MainCharacter : CharacterBody2D
 			{
 				_animatedSprite.Play("Idle");
 				_sounds["RunningSound"].Stop();
+				_sounds["ClimbingSound"].Stop();
 			}
 				
 		}
