@@ -5,7 +5,7 @@ using System.Linq;
 public partial class Portal : Area2D
 {
     private string FILE_PATH = "res://Scenes/Levels/Level";
-    private int LAST = 2;
+    private int LAST = 3;
     public void OnBodyEntered(Node2D body)
     {
         Console.WriteLine("Body entered");

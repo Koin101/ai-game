@@ -59,14 +59,12 @@ frame_progress = 0.124172
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-10, 7)
 shape = SubResource("CapsuleShape2D_66y18")
-disabled = true
 
 [node name="Chatdetection" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chatdetection"]
 position = Vector2(-1, 7)
 shape = SubResource("RectangleShape2D_1xtmp")
-disabled = true
 
 [node name="KeyIndicator" type="Sprite2D" parent="."]
 position = Vector2(-8.875, -23)

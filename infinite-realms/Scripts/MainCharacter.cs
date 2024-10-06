@@ -6,15 +6,15 @@ public partial class MainCharacter : CharacterBody2D
 	public const float Speed = 300.0f;
 	public const float JumpVelocity = -380.0f;
 
-	private AnimatedSprite2D _animatedSprite;
-	private bool _isJumping = false;
-	private bool _isChatting = false;
-	private Vector2 _initialPosition;
+	public AnimatedSprite2D _animatedSprite;
+	public bool _isJumping = false;
+	public bool _isChatting = false;
+	public Vector2 _initialPosition;
 	public bool climbing = false;
 	
 	public override void _Ready()
 	{
-		_animatedSprite = GetNode<AnimatedSprite2D>("MainCharAnimation");
+		// _animatedSprite = GetNode<AnimatedSprite2D>("MainCharAnimation");
 		// Store the character's initial position
 		_initialPosition = Position;
 	}
@@ -77,8 +77,8 @@ public partial class MainCharacter : CharacterBody2D
 			{
 				_animatedSprite.FlipH = direction.X switch
 				{
-					< 0 => true,
-					> 0 => false,
+					< 0 => false,
+					> 0 => true,
 					_ => _animatedSprite.FlipH
 				};
 				_animatedSprite.Play("Running");
@@ -87,8 +87,8 @@ public partial class MainCharacter : CharacterBody2D
 			{
 				_animatedSprite.FlipH = direction.X switch
 				{
-					< 0 => true,
-					> 0 => false,
+					< 0 => false,
+					> 0 => true,
 					_ => _animatedSprite.FlipH
 				};
 			}

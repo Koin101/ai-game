@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using GodotPlugins.Game;
 
 public partial class Ladder : Area2D
 {
