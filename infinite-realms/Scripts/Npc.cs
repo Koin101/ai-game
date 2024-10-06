@@ -78,4 +78,18 @@ public partial class Npc : CharacterBody2D
 		keyIndicator.Visible = false;
 		GD.Print("Exited chat zone");
 	}
+	
+	// public override void _PhysicsProcess(double delta)
+	// {
+	// 	
+	// 	Vector2 velocity = Velocity;
+	// 	
+	// 	if (!IsOnFloor())
+	// 	{
+	// 		velocity += GetGravity() * (float)delta;
+	// 	}
+	// 	
+	// 	Velocity = velocity;
+	// 	MoveAndSlide();
+	// }
 }

@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://7ij0oikgdgrb"]
 
 [ext_resource type="Texture2D" uid="uid://ciaghsdmix784" path="res://Assets/Sprites/2 Punk/Idle.png" id="1_e8kkj"]
-[ext_resource type="Script" path="res://Npc.cs" id="1_mta1q"]
+[ext_resource type="Script" path="res://Scripts/Npc.cs" id="1_mta1q"]
 [ext_resource type="Texture2D" uid="uid://dsmr2k6tmw5t5" path="res://Assets/UI/Keys.png" id="3_a2v2r"]
-[ext_resource type="PackedScene" uid="uid://u5uywlor0wym" path="res://Dialogue-control.tscn" id="4_b0qt6"]
+[ext_resource type="PackedScene" uid="uid://crh3a1km2lwqe" path="res://Scenes/Dialogue-control.tscn" id="4_b0qt6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vdoon"]
 atlas = ExtResource("1_e8kkj")
@@ -41,8 +41,8 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_bdu64"]
-radius = 5.38516
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_66y18"]
+height = 34.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1xtmp"]
 size = Vector2(44, 35)
@@ -58,7 +58,7 @@ frame_progress = 0.124172
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-10, 7)
-shape = SubResource("CircleShape2D_bdu64")
+shape = SubResource("CapsuleShape2D_66y18")
 disabled = true
 
 [node name="Chatdetection" type="Area2D" parent="."]
@@ -66,6 +66,7 @@ disabled = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chatdetection"]
 position = Vector2(-1, 7)
 shape = SubResource("RectangleShape2D_1xtmp")
+disabled = true
 
 [node name="KeyIndicator" type="Sprite2D" parent="."]
 position = Vector2(-8.875, -23)

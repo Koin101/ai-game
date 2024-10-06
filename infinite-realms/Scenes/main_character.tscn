@@ -106,6 +106,8 @@ height = 28.0
 
 [node name="MainCharacter" type="CharacterBody2D" groups=["Player"]]
 z_index = 5
+position = Vector2(1, 0)
+scale = Vector2(3, 3)
 script = ExtResource("1_kndm0")
 
 [node name="MainCharAnimation" type="AnimatedSprite2D" parent="."]
@@ -115,3 +117,4 @@ animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_2ba1f")
+one_way_collision = true

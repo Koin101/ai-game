@@ -8,6 +8,7 @@ public partial class Portal : Area2D
     private int LAST = 2;
     public void OnBodyEntered(Node2D body)
     {
+        Console.WriteLine("Body entered");
         if(body.IsInGroup("Player"))
         {
             String currentScene = GetTree().CurrentScene.SceneFilePath;
