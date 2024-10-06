@@ -3,13 +3,15 @@ using System;
 
 public partial class MainCharacter : CharacterBody2D
 {
-	public const float Speed = 150.0f;
+	public const float Speed = 300.0f;
 	public const float JumpVelocity = -380.0f;
 
 	private AnimatedSprite2D _animatedSprite;
 	private bool _isJumping = false;
 	private bool _isChatting = false;
 	private Vector2 _initialPosition;
+	public bool climbing = false;
+	
 	public override void _Ready()
 	{
 		_animatedSprite = GetNode<AnimatedSprite2D>("MainCharAnimation");
@@ -19,6 +21,8 @@ public partial class MainCharacter : CharacterBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
+
+		Console.WriteLine(climbing);
 		if (_isChatting)
 		{
 			_animatedSprite.Play("Idle");
@@ -33,9 +37,23 @@ public partial class MainCharacter : CharacterBody2D
 		}
 
 		// Add the gravity.
-		if (!IsOnFloor())
+		if (!IsOnFloor() && !climbing)
 		{
 			velocity += GetGravity() * (float)delta;
+		}
+		else if (climbing)
+		{
+			velocity.Y = 0;
+
+			if (Input.IsActionPressed("Move_Up"))
+			{
+				velocity.Y = -Speed;
+			}
+
+			if (Input.IsActionPressed("Move_Down"))
+			{
+				velocity.Y = Speed;
+			}
 		}
 
 		// Handle Jump.

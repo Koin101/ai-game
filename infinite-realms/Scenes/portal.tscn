@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bni8ve2207jdf"]
+[gd_scene load_steps=8 format=3 uid="uid://5tu4dnpoppot"]
 
 [ext_resource type="Script" path="res://Scripts/Portal.cs" id="1_mx7sp"]
 [ext_resource type="Texture2D" uid="uid://b50eu6dps3ym0" path="res://Assets/Sprites/Dimensional_Portal.png" id="1_vdv8d"]

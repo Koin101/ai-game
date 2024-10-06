@@ -19,7 +19,7 @@ func _ready():
 		await get_tree().create_timer(1).timeout
 		instance.render()
 	else:
-		get_tree().change_scene_to_file("res://Scenes/Levels/Level1.tscn")
+		get_tree().change_scene_to_file("res://Scenes/Levels/Level2.tscn")
 
 func _on_render_completed():
 	print("Render completed, unloading")
