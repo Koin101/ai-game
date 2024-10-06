@@ -16,7 +16,7 @@ public partial class Npc : CharacterBody2D
 	{
 		base._Ready();
 		// Get Nodes
-		player = GetNode<MainCharacter>("../MainCharacter");
+		player = GetNode<MainCharacter>("../Grandpa");
 		chatBox = GetNode<DialogueControl>("DialogueBox");
 		chatDetect = GetNode<Area2D>("Chatdetection");
 		keyIndicator = GetNode<Sprite2D>("KeyIndicator");

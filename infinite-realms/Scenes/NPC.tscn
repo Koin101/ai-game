@@ -47,8 +47,8 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_bdu64"]
-radius = 5.38516
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_66y18"]
+height = 34.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1xtmp"]
 size = Vector2(44, 35)
@@ -72,8 +72,7 @@ frame_progress = 0.124172
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-10, 7)
-shape = SubResource("CircleShape2D_bdu64")
-disabled = true
+shape = SubResource("CapsuleShape2D_66y18")
 
 [node name="Chatdetection" type="Area2D" parent="."]
 

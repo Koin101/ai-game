@@ -7,7 +7,7 @@ using System.Linq;
 
 public partial class MainCharacter : CharacterBody2D
 {
-	public const float Speed = 150.0f;
+	public const float Speed = 300.0f;
 	public const float JumpVelocity = -380.0f;
 
 	private AnimatedSprite2D _animatedSprite;
@@ -15,7 +15,8 @@ public partial class MainCharacter : CharacterBody2D
 	private bool _isChatting = false;
 	private readonly System.Collections.Generic.Dictionary<String, AudioStreamPlayer2D> _sounds = new();
 	private Vector2 _initialPosition;
-	public override void _Ready()
+    public bool climbing = false;
+    public override void _Ready()
 	{
 		_animatedSprite = GetNode<AnimatedSprite2D>("MainCharAnimation");
 		var sounds = this.FindChildren("*", "AudioStreamPlayer2D");
@@ -24,12 +25,15 @@ public partial class MainCharacter : CharacterBody2D
 			_sounds.Add(sound.Name, (AudioStreamPlayer2D)sound);
 		}
 		
+		// _animatedSprite = GetNode<AnimatedSprite2D>("MainCharAnimation");
 		// Store the character's initial position
 		_initialPosition = Position;
 	}
 
 	public override void _PhysicsProcess(double delta)
 	{
+
+		Console.WriteLine(climbing);
 		if (_isChatting)
 		{
 			_animatedSprite.Play("Idle");
@@ -44,9 +48,23 @@ public partial class MainCharacter : CharacterBody2D
 		}
 
 		// Add the gravity.
-		if (!IsOnFloor())
+		if (!IsOnFloor() && !climbing)
 		{
 			velocity += GetGravity() * (float)delta;
+		}
+		else if (climbing)
+		{
+			velocity.Y = 0;
+
+			if (Input.IsActionPressed("Move_Up"))
+			{
+				velocity.Y = -Speed;
+			}
+
+			if (Input.IsActionPressed("Move_Down"))
+			{
+				velocity.Y = Speed;
+			}
 		}
 
 		// Handle Jump.
@@ -73,8 +91,8 @@ public partial class MainCharacter : CharacterBody2D
 			{
 				_animatedSprite.FlipH = direction.X switch
 				{
-					< 0 => true,
-					> 0 => false,
+					< 0 => false,
+					> 0 => true,
 					_ => _animatedSprite.FlipH
 				};
 				_animatedSprite.Play("Running");
@@ -88,8 +106,8 @@ public partial class MainCharacter : CharacterBody2D
 			{
 				_animatedSprite.FlipH = direction.X switch
 				{
-					< 0 => true,
-					> 0 => false,
+					< 0 => false,
+					> 0 => true,
 					_ => _animatedSprite.FlipH
 				};
 			}

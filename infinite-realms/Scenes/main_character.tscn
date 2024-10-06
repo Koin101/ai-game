@@ -108,6 +108,8 @@ height = 28.0
 
 [node name="MainCharacter" type="CharacterBody2D" groups=["Player"]]
 z_index = 5
+position = Vector2(1, 0)
+scale = Vector2(3, 3)
 script = ExtResource("1_kndm0")
 
 [node name="MainCharAnimation" type="AnimatedSprite2D" parent="."]
@@ -126,3 +128,4 @@ pitch_scale = 0.7
 [node name="RunningSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_74ibx")
 pitch_scale = 1.24
+one_way_collision = true
