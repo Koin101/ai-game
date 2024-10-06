@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://crh3a1km2lwqe"]
+[gd_scene load_steps=3 format=3 uid="uid://bl4mkvok1wem0"]
 
-[ext_resource type="Script" path="res://DialogueControl.cs" id="1_0ogjw"]
 [ext_resource type="Texture2D" uid="uid://bctaf7s2hnxw6" path="res://Assets/UI/inventory-background.png" id="1_5pted"]
 [ext_resource type="Texture2D" uid="uid://bxeapec4bvam5" path="res://Assets/UI/arrow-down-3101.png" id="3_d5314"]
 
@@ -9,7 +8,6 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_0ogjw")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 0
