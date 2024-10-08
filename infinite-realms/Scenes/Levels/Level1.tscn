@@ -49,7 +49,7 @@ scale = Vector2(3, 3)
 [node name="Grandpa" parent="." instance=ExtResource("6_7v12e")]
 z_index = 5
 position = Vector2(220, 979)
-scale = Vector2(2.5, 2.5)
+scale = Vector2(2.2, 2.2)
 
 [node name="Camera2D" type="Camera2D" parent="Grandpa"]
 position = Vector2(-13.6, -4.79999)

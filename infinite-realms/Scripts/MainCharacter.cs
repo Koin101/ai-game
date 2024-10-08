@@ -37,9 +37,25 @@ public partial class MainCharacter : CharacterBody2D
 		}
 
 		// Add the gravity.
-		if (!IsOnFloor() && !climbing)
+		if (!IsOnFloor() && !climbing )
 		{
 			velocity += GetGravity() * (float)delta;
+		}
+		else if (climbing && _isJumping)
+		{
+			velocity += GetGravity() * (float)delta;
+			if (Input.IsActionPressed("Move_Up"))
+			{
+				_isJumping = false;
+				velocity.Y = -Speed;
+			}
+
+			if (Input.IsActionPressed("Move_Down"))
+			{
+				_isJumping = false;
+				velocity.Y = Speed;
+			}
+
 		}
 		else if (climbing)
 		{
