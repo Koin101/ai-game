@@ -11,6 +11,8 @@ public partial class Portal : Area2D
         Console.WriteLine("Body entered");
         if(body.IsInGroup("Player"))
         {
+
+            SoundPlayer.Play("PortalSound");
             String currentScene = GetTree().CurrentScene.SceneFilePath;
             int currentLevel = String.Join("", currentScene.Where(char.IsDigit)).ToInt();
             currentLevel++;
@@ -28,7 +30,7 @@ public partial class Portal : Area2D
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
-	}
+    }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)

@@ -9,6 +9,7 @@ public partial class Npc : CharacterBody2D
 	Area2D chatDetect;
 	public bool playerInRange = false;
 	public bool isChatting = false;
+	private readonly System.Collections.Generic.Dictionary<String, AudioStreamPlayer2D> _sounds = new();
 
 
 	public override void _Ready()
@@ -19,6 +20,11 @@ public partial class Npc : CharacterBody2D
 		chatBox = GetNode<DialogueControl>("DialogueBox");
 		chatDetect = GetNode<Area2D>("Chatdetection");
 		keyIndicator = GetNode<Sprite2D>("KeyIndicator");
+		var sounds = this.FindChildren("*", "AudioStreamPlayer2D");
+		foreach (var sound in sounds)
+		{
+			_sounds.Add(sound.Name, (AudioStreamPlayer2D)sound);
+		}
 
 		chatBox.Visible = false;
 		keyIndicator.Visible = false;
@@ -51,6 +57,7 @@ public partial class Npc : CharacterBody2D
 				player.EnterChatMode();
 				chatBox.StartDialogue();
 				chatBox.Visible = true;
+				PlaySpeakingSound();
 			} else
 			{
 				if (!chatBox.NextScript()) // NextScript returns false if the dialogue is exhausted
@@ -58,6 +65,9 @@ public partial class Npc : CharacterBody2D
 					chatBox.Visible = false;
 					player.ExitChatMode();
 					isChatting = false;
+				} else
+				{
+					PlaySpeakingSound();
 				}
 			}
 		}
@@ -78,18 +88,9 @@ public partial class Npc : CharacterBody2D
 		keyIndicator.Visible = false;
 		GD.Print("Exited chat zone");
 	}
-	
-	// public override void _PhysicsProcess(double delta)
-	// {
-	// 	
-	// 	Vector2 velocity = Velocity;
-	// 	
-	// 	if (!IsOnFloor())
-	// 	{
-	// 		velocity += GetGravity() * (float)delta;
-	// 	}
-	// 	
-	// 	Velocity = velocity;
-	// 	MoveAndSlide();
-	// }
+
+	public void PlaySpeakingSound()
+	{
+		_sounds["SpeakingSound"].Play();
+	}
 }

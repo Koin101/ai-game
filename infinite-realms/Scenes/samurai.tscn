@@ -1,7 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://snqtlxpf6e8o"]
+[gd_scene load_steps=19 format=3 uid="uid://cwi8a7528q1rr"]
 
 [ext_resource type="Texture2D" uid="uid://dc7xofvveq7vv" path="res://Assets/Sprites/Samurai/samurai_all.png" id="1_a7g7k"]
 [ext_resource type="Script" path="res://Scripts/Samurai.cs" id="1_qh16j"]
+[ext_resource type="AudioStream" uid="uid://du6xtarc3g0ud" path="res://Assets/Sounds/Sfx/jump.mp3" id="3_agtcl"]
+[ext_resource type="AudioStream" uid="uid://dlnm5hleu6m6u" path="res://Assets/Sounds/Sfx/running3.mp3" id="4_lkmr8"]
+[ext_resource type="AudioStream" uid="uid://ccx7cwhhvm0f" path="res://Assets/Sounds/Sfx/Ladder.mp3" id="5_v4ceb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7i4qr"]
 atlas = ExtResource("1_a7g7k")
@@ -114,3 +117,17 @@ flip_h = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_hbn3i")
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_agtcl")
+volume_db = 3.0
+pitch_scale = 0.7
+
+[node name="RunningSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_lkmr8")
+pitch_scale = 1.24
+
+[node name="ClimbingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_v4ceb")
+volume_db = 10.0
+pitch_scale = 2.02

@@ -1,7 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://djp2c0nlk1fhl"]
+[gd_scene load_steps=19 format=3 uid="uid://cng6urhjnd8s2"]
 
 [ext_resource type="Script" path="res://Scripts/Grandpa.cs" id="1_afiof"]
 [ext_resource type="Texture2D" uid="uid://dd2bjjnijecah" path="res://Assets/Sprites/Grandpa/ComfyUI_00056_transparant.png" id="1_i11l3"]
+[ext_resource type="AudioStream" uid="uid://du6xtarc3g0ud" path="res://Assets/Sounds/Sfx/jump.mp3" id="3_vr4vy"]
+[ext_resource type="AudioStream" uid="uid://dlnm5hleu6m6u" path="res://Assets/Sounds/Sfx/running3.mp3" id="4_1s15d"]
+[ext_resource type="AudioStream" uid="uid://ccx7cwhhvm0f" path="res://Assets/Sounds/Sfx/Ladder.mp3" id="5_gyhti"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mj2k4"]
 atlas = ExtResource("1_i11l3")
@@ -114,3 +117,17 @@ flip_h = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_u71bl")
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_vr4vy")
+volume_db = 3.0
+pitch_scale = 0.7
+
+[node name="RunningSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_1s15d")
+pitch_scale = 1.24
+
+[node name="ClimbingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_gyhti")
+volume_db = 10.0
+pitch_scale = 2.02
