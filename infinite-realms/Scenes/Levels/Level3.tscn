@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://bxyfmm2j00rnq" path="res://Assets/LevelBackgrounds/WeirdAlienPlanet.png" id="1_h38mq"]
 [ext_resource type="TileSet" uid="uid://dhuc2415b23j1" path="res://Assets/TileSets/TilesAndProps.tres" id="2_hnpkp"]
-[ext_resource type="PackedScene" uid="uid://bsj8771rr1qqi" path="res://Scenes/Ladder.tscn" id="4_278u2"]
-[ext_resource type="PackedScene" path="res://Scenes/knight.tscn" id="4_ke6wf"]
-[ext_resource type="PackedScene" uid="uid://5tu4dnpoppot" path="res://Scenes/portal.tscn" id="5_w85gi"]
+[ext_resource type="PackedScene" uid="uid://7pty3mcogb4m" path="res://Scenes/Ladder.tscn" id="4_278u2"]
+[ext_resource type="PackedScene" uid="uid://cnhbhgwfxnviu" path="res://Scenes/knight.tscn" id="4_ke6wf"]
+[ext_resource type="PackedScene" uid="uid://7a6e1vq2yr1x" path="res://Scenes/portal.tscn" id="5_w85gi"]
 
 [node name="Level2" type="Node2D"]
 
@@ -28,8 +28,20 @@ position = Vector2(965, 833)
 scale = Vector2(1, 1.05008)
 
 [node name="Knight" parent="." instance=ExtResource("4_ke6wf")]
+z_index = 6
 position = Vector2(67, 939)
-scale = Vector2(2.5, 2.5)
+scale = Vector2(2, 2)
+
+[node name="Camera2D" type="Camera2D" parent="Knight"]
+position = Vector2(-13.6, -4.79999)
+scale = Vector2(0.6, 0.6)
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
+limit_smoothed = true
+position_smoothing_enabled = true
 
 [node name="Portal" parent="." instance=ExtResource("5_w85gi")]
 position = Vector2(1261, 393)

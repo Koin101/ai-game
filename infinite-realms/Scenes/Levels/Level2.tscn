@@ -23,8 +23,20 @@ tile_map_data = PackedByteArray("AAADAD4ABAACAAUAAAADAD8ABAACAAYAAAAEAD4ABAADAAU
 tile_set = ExtResource("2_vvsog")
 
 [node name="samurai" parent="." instance=ExtResource("3_oppry")]
+z_index = 5
 position = Vector2(130, 971)
 scale = Vector2(2.5, 2.5)
+
+[node name="Camera2D" type="Camera2D" parent="samurai"]
+position = Vector2(-13.6, -4.79999)
+scale = Vector2(0.6, 0.6)
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
+limit_smoothed = true
+position_smoothing_enabled = true
 
 [node name="Portal" parent="." instance=ExtResource("4_bjcyr")]
 position = Vector2(1801, 958)
