@@ -98,3 +98,4 @@ script = ExtResource("5_flcb2")
 
 [node name="SpeakingSound" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_373d1")
+volume_db = 7.027

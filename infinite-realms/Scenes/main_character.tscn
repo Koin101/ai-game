@@ -20,7 +20,7 @@ shape = SubResource("CapsuleShape2D_2ba1f")
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_agu1p")
-volume_db = 3.0
+volume_db = 7.919
 pitch_scale = 0.7
 
 [node name="RunningSound" type="AudioStreamPlayer2D" parent="."]
@@ -31,4 +31,3 @@ pitch_scale = 1.24
 stream = ExtResource("4_tpvpi")
 volume_db = 10.0
 pitch_scale = 2.02
-stream_paused = true
