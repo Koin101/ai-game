@@ -90,10 +90,10 @@ vframes = 8
 frame = 5
 
 [node name="DialogueBox" parent="." instance=ExtResource("4_b0qt6")]
-offset_left = -80.0
-offset_top = -64.0
-offset_right = -40.0
-offset_bottom = -24.0
+offset_left = -63.0
+offset_top = -92.0
+offset_right = 67.0
+offset_bottom = -36.0
 script = ExtResource("5_flcb2")
 
 [node name="SpeakingSound" type="AudioStreamPlayer2D" parent="."]
