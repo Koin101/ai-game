@@ -11,6 +11,7 @@ rotation = 1.57079
 scale = Vector2(6.30859, 1.68251)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BorderLeft"]
+scale = Vector2(1, 1)
 shape = SubResource("WorldBoundaryShape2D_5irdb")
 
 [node name="BorderBottom" type="StaticBody2D" parent="."]

@@ -1,9 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://7ij0oikgdgrb"]
+[gd_scene load_steps=20 format=3 uid="uid://ch8tx3ibk3qvj"]
 
 [ext_resource type="Texture2D" uid="uid://ciaghsdmix784" path="res://Assets/Sprites/2 Punk/Idle.png" id="1_e8kkj"]
-[ext_resource type="Script" path="res://Scripts/Npc.cs" id="1_mta1q"]
+[ext_resource type="Script" path="res://Scripts/Npc.cs" id="1_kiqig"]
 [ext_resource type="Texture2D" uid="uid://dsmr2k6tmw5t5" path="res://Assets/UI/Keys.png" id="3_a2v2r"]
-[ext_resource type="PackedScene" uid="uid://bl4mkvok1wem0" path="res://Dialogue-control.tscn" id="4_b0qt6"]
+[ext_resource type="PackedScene" uid="uid://bl4mkvok1wem0" path="res://Scenes/Dialogue-control.tscn" id="4_b0qt6"]
+[ext_resource type="AudioStream" uid="uid://br74150fchu3m" path="res://Assets/Sounds/Sfx/NPC_1.mp3" id="5_3hlsj"]
+[ext_resource type="Script" path="res://Scripts/DialogueControl.cs" id="5_flcb2"]
+[ext_resource type="AudioStream" uid="uid://ctshu36qywl0j" path="res://Assets/Sounds/Sfx/NPC_2..mp3" id="6_h1wik"]
+[ext_resource type="AudioStream" uid="uid://b8w2eggspy1m4" path="res://Assets/Sounds/Sfx/NPC_3.mp3" id="7_uby70"]
+[ext_resource type="AudioStream" uid="uid://514unktddido" path="res://Assets/Sounds/Sfx/NPC_4.mp3" id="8_yh3t6"]
+[ext_resource type="AudioStream" uid="uid://ckl1c7moqds5j" path="res://Assets/Sounds/Sfx/NPC_5.mp3" id="9_2qemw"]
+[ext_resource type="Script" path="res://Scripts/line_edit.gd" id="11_f6sit"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vdoon"]
 atlas = ExtResource("1_e8kkj")
@@ -41,14 +48,22 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_bdu64"]
-radius = 5.38516
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_66y18"]
+height = 34.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1xtmp"]
 size = Vector2(44, 35)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_373d1"]
+streams_count = 5
+stream_0/stream = ExtResource("5_3hlsj")
+stream_1/stream = ExtResource("6_h1wik")
+stream_2/stream = ExtResource("7_uby70")
+stream_3/stream = ExtResource("8_yh3t6")
+stream_4/stream = ExtResource("9_2qemw")
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
-script = ExtResource("1_mta1q")
+script = ExtResource("1_kiqig")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8x1yr")
@@ -58,7 +73,7 @@ frame_progress = 0.124172
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-10, 7)
-shape = SubResource("CircleShape2D_bdu64")
+shape = SubResource("CapsuleShape2D_66y18")
 disabled = true
 
 [node name="Chatdetection" type="Area2D" parent="."]
@@ -76,7 +91,22 @@ vframes = 8
 frame = 5
 
 [node name="DialogueBox" parent="." instance=ExtResource("4_b0qt6")]
-offset_left = -72.0
-offset_top = -39.0
-offset_right = 91.0
-offset_bottom = -5.0
+offset_left = -80.0
+offset_top = -64.0
+offset_right = -40.0
+offset_bottom = -24.0
+script = ExtResource("5_flcb2")
+
+[node name="SpeakingSound" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_373d1")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_left = -77.0
+offset_top = -75.0
+offset_right = 113.0
+offset_bottom = -38.0
+script = ExtResource("11_f6sit")
+
+[connection signal="GdllamaAvailable" from="LineEdit" to="." method="OnGdllamaAvailable"]
+[connection signal="GdllamaUpdated" from="LineEdit" to="." method="OnGdllamaUpdated"]
+[connection signal="text_submitted" from="LineEdit" to="." method="OnLineEditTextSubmitted"]

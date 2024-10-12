@@ -1,0 +1,133 @@
+[gd_scene load_steps=19 format=3 uid="uid://cwi8a7528q1rr"]
+
+[ext_resource type="Texture2D" uid="uid://dc7xofvveq7vv" path="res://Assets/Sprites/Samurai/samurai_all.png" id="1_a7g7k"]
+[ext_resource type="Script" path="res://Scripts/Samurai.cs" id="1_qh16j"]
+[ext_resource type="AudioStream" uid="uid://du6xtarc3g0ud" path="res://Assets/Sounds/Sfx/jump.mp3" id="3_agtcl"]
+[ext_resource type="AudioStream" uid="uid://dlnm5hleu6m6u" path="res://Assets/Sounds/Sfx/running3.mp3" id="4_lkmr8"]
+[ext_resource type="AudioStream" uid="uid://ccx7cwhhvm0f" path="res://Assets/Sounds/Sfx/Ladder.mp3" id="5_v4ceb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7i4qr"]
+atlas = ExtResource("1_a7g7k")
+region = Rect2(602, 520, 78, 233)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qg7yh"]
+atlas = ExtResource("1_a7g7k")
+region = Rect2(860, 520, 78, 233)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2dp5"]
+atlas = ExtResource("1_a7g7k")
+region = Rect2(602, 780, 78, 233)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2sjo"]
+atlas = ExtResource("1_a7g7k")
+region = Rect2(860, 780, 78, 233)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tk0m"]
+atlas = ExtResource("1_a7g7k")
+region = Rect2(528, 262, 124, 235)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxo8o"]
+atlas = ExtResource("1_a7g7k")
+region = Rect2(0, 520, 161, 213)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jw023"]
+atlas = ExtResource("1_a7g7k")
+region = Rect2(171, 520, 161, 213)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkbi2"]
+atlas = ExtResource("1_a7g7k")
+region = Rect2(342, 520, 161, 213)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htr6k"]
+atlas = ExtResource("1_a7g7k")
+region = Rect2(0, 780, 161, 213)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkjrj"]
+atlas = ExtResource("1_a7g7k")
+region = Rect2(171, 780, 161, 213)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0auqq"]
+atlas = ExtResource("1_a7g7k")
+region = Rect2(342, 780, 161, 213)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7g0af"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7i4qr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qg7yh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2dp5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2sjo")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4tk0m")
+}],
+"loop": true,
+"name": &"Jumping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pxo8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jw023")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tkbi2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htr6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkjrj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0auqq")
+}],
+"loop": true,
+"name": &"Running",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hbn3i"]
+radius = 3.0
+height = 28.0
+
+[node name="samurai" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_qh16j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.125, 0.125)
+sprite_frames = SubResource("SpriteFrames_7g0af")
+animation = &"Jumping"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_hbn3i")
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_agtcl")
+volume_db = 3.0
+pitch_scale = 0.7
+
+[node name="RunningSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_lkmr8")
+pitch_scale = 1.24
+
+[node name="ClimbingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_v4ceb")
+volume_db = 10.0
+pitch_scale = 2.02

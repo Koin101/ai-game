@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bni8ve2207jdf"]
+[gd_scene load_steps=9 format=3 uid="uid://7a6e1vq2yr1x"]
 
 [ext_resource type="Script" path="res://Scripts/Portal.cs" id="1_mx7sp"]
 [ext_resource type="Texture2D" uid="uid://b50eu6dps3ym0" path="res://Assets/Sprites/Dimensional_Portal.png" id="1_vdv8d"]
 [ext_resource type="Script" path="res://Scripts/PortalSprite.cs" id="2_34kdh"]
+[ext_resource type="AudioStream" uid="uid://km66su55a580" path="res://Assets/Sounds/Sfx/Portal.mp3" id="4_mp526"]
 
 [sub_resource type="Animation" id="Animation_wnvrr"]
 length = 0.001
@@ -62,5 +63,8 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 0)
 shape = SubResource("CapsuleShape2D_rayxf")
+
+[node name="TeleportSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_mp526")
 
 [connection signal="body_entered" from="." to="." method="OnBodyEntered"]

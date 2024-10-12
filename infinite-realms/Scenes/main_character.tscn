@@ -1,104 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://onjjv5yuwemt"]
+[gd_scene load_steps=6 format=3 uid="uid://onjjv5yuwemt"]
 
 [ext_resource type="Script" path="res://Scripts/MainCharacter.cs" id="1_kndm0"]
-[ext_resource type="Texture2D" uid="uid://cc4dk68ko635x" path="res://Assets/Sprites/1 Biker/Idle.png" id="1_pj6ie"]
-[ext_resource type="Texture2D" uid="uid://cso0x1xhotjva" path="res://Assets/Sprites/1 Biker/Run_attack.png" id="2_f61qg"]
-[ext_resource type="Texture2D" uid="uid://bfgub85so3p3j" path="res://Assets/Sprites/1 Biker/Run.png" id="3_ohb2p"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h2snb"]
-atlas = ExtResource("1_pj6ie")
-region = Rect2(0, 0, 24, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eh1ju"]
-atlas = ExtResource("1_pj6ie")
-region = Rect2(48, 0, 24, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jt5t0"]
-atlas = ExtResource("1_pj6ie")
-region = Rect2(96, 0, 24, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4i1gd"]
-atlas = ExtResource("1_pj6ie")
-region = Rect2(144, 0, 24, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_80h56"]
-atlas = ExtResource("2_f61qg")
-region = Rect2(96, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4lnna"]
-atlas = ExtResource("3_ohb2p")
-region = Rect2(0, 0, 45, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c77ui"]
-atlas = ExtResource("3_ohb2p")
-region = Rect2(45, 0, 45, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_87xr8"]
-atlas = ExtResource("3_ohb2p")
-region = Rect2(90, 0, 45, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lduju"]
-atlas = ExtResource("3_ohb2p")
-region = Rect2(135, 0, 45, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_718jr"]
-atlas = ExtResource("3_ohb2p")
-region = Rect2(180, 0, 45, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sbifc"]
-atlas = ExtResource("3_ohb2p")
-region = Rect2(225, 0, 45, 48)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ofaqr"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h2snb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eh1ju")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jt5t0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4i1gd")
-}],
-"loop": true,
-"name": &"Idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_80h56")
-}],
-"loop": true,
-"name": &"Jumping",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4lnna")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c77ui")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_87xr8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lduju")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_718jr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sbifc")
-}],
-"loop": true,
-"name": &"Running",
-"speed": 8.0
-}]
+[ext_resource type="AudioStream" uid="uid://ccx7cwhhvm0f" path="res://Assets/Sounds/Sfx/Ladder.mp3" id="4_tpvpi"]
+[ext_resource type="AudioStream" uid="uid://du6xtarc3g0ud" path="res://Assets/Sounds/Sfx/jump.mp3" id="5_agu1p"]
+[ext_resource type="AudioStream" uid="uid://dlnm5hleu6m6u" path="res://Assets/Sounds/Sfx/running3.mp3" id="6_74ibx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2ba1f"]
 radius = 6.0
@@ -106,12 +11,24 @@ height = 28.0
 
 [node name="MainCharacter" type="CharacterBody2D" groups=["Player"]]
 z_index = 5
+position = Vector2(1, 0)
+scale = Vector2(3, 3)
 script = ExtResource("1_kndm0")
-
-[node name="MainCharAnimation" type="AnimatedSprite2D" parent="."]
-position = Vector2(-2.58, -9.795)
-sprite_frames = SubResource("SpriteFrames_ofaqr")
-animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_2ba1f")
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_agu1p")
+volume_db = 3.0
+pitch_scale = 0.7
+
+[node name="RunningSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_74ibx")
+pitch_scale = 1.24
+
+[node name="ClimbingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_tpvpi")
+volume_db = 10.0
+pitch_scale = 2.02
+stream_paused = true

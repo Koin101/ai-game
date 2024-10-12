@@ -7,7 +7,7 @@ using System.Collections.Generic;
 public partial class DialogueControl : Control
 {
 	Array<Dictionary> dialogue;
-	private int currentDialogueID;
+	public int currentDialogueID;
 	RichTextLabel mainText;
 	TextureRect moreTextIndicator;
 
@@ -54,5 +54,11 @@ public partial class DialogueControl : Control
 			moreTextIndicator.Visible=false;
 		}
 		return true;
+	}
+	
+	public void updateDialogue(string Line)
+	{
+		GD.Print(Line.Trim());
+		mainText.Text = Line.Trim();
 	}
 }
