@@ -105,6 +105,7 @@ public partial class Npc : CharacterBody2D
 	
 	public void OnLineEditTextSubmitted(string text)
 	{
+		reaction = "";
 		GD.Print(text);
 		userInput.Visible = false;
 		userInput.Clear();

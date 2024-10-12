@@ -31,4 +31,3 @@ pitch_scale = 1.24
 stream = ExtResource("4_tpvpi")
 volume_db = 10.0
 pitch_scale = 2.02
-stream_paused = true
