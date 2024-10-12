@@ -4,7 +4,7 @@ using Godot.NativeInterop;
 using System;
 using System.Collections.Generic;
 
-public partial class DialogueControl : Control
+public partial class DialogueControl : Godot.Control
 {
 	Array<Dictionary> dialogue;
 	private int currentDialogueID;
@@ -12,6 +12,8 @@ public partial class DialogueControl : Control
 	TextureRect moreTextIndicator;
 
 	// Called when the node enters the scene tree for the first time.
+
+
 	public override void _Ready()
 	{
 		base._Ready();
