@@ -14,10 +14,11 @@ public partial class Npc : CharacterBody2D
 
 	public override void _Ready()
 	{
+		base._Ready();
 		// Get Nodes
 		player = GetNode<MainCharacter>("../Grandpa");
-		chatBox = this.GetNode<DialogueControl>("DialogueBox");
-		chatDetect = this.GetNode<Area2D>("Chatdetection");
+		chatBox = GetNode<DialogueControl>("DialogueBox");
+		chatDetect = GetNode<Area2D>("Chatdetection");
 		keyIndicator = GetNode<Sprite2D>("KeyIndicator");
 		var sounds = this.FindChildren("*", "AudioStreamPlayer2D");
 		foreach (var sound in sounds)

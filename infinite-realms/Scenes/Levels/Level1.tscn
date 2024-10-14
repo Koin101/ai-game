@@ -1,9 +1,14 @@
-[gd_scene load_steps=7 format=4 uid="uid://cl8qvomnnixtm"]
+[gd_scene load_steps=7 format=4 uid="uid://tqafr5emubxp"]
 
 [ext_resource type="Texture2D" uid="uid://cn8u0aat2m5l3" path="res://Assets/LevelBackgrounds/FuturisticApocolypsWorld.png" id="1_70ajm"]
 [ext_resource type="TileSet" uid="uid://dhuc2415b23j1" path="res://Assets/TileSets/TilesAndProps.tres" id="2_vvsog"]
-[ext_resource type="PackedScene" uid="uid://7ij0oikgdgrb" path="res://Scenes/NPC.tscn" id="3_ooqnf"]
-[ext_resource type="PackedScene" uid="uid://bsj8771rr1qqi" path="res://Scenes/Ladder.tscn" id="4_a22uy"]
+
+
+
+
+[ext_resource type="PackedScene" uid="uid://ch8tx3ibk3qvj" path="res://Scenes/NPC.tscn" id="3_ooqnf"]
+[ext_resource type="PackedScene" uid="uid://7pty3mcogb4m" path="res://Scenes/Ladder.tscn" id="4_a22uy"]
+
 [ext_resource type="PackedScene" uid="uid://7a6e1vq2yr1x" path="res://Scenes/portal.tscn" id="5_ilv3s"]
 [ext_resource type="PackedScene" uid="uid://cng6urhjnd8s2" path="res://Scenes/grandpa.tscn" id="6_7v12e"]
 

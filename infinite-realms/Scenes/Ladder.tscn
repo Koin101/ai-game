@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bsj8771rr1qqi"]
+[gd_scene load_steps=4 format=3 uid="uid://7pty3mcogb4m"]
 
 [ext_resource type="Script" path="res://Scripts/Ladder.cs" id="1_wpbw5"]
 [ext_resource type="Texture2D" uid="uid://2uy2msxydd4e" path="res://Assets/Sprites/Ladder.png" id="2_in2r7"]
