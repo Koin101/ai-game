@@ -6,7 +6,7 @@ public partial class MainMenu : Control
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		GetNode<Button>("VBoxContainer/StartButton").GrabFocus();
+		// GetNode<Button>("VBoxContainer/StartButton").GrabFocus();
 	}
 
 	private void _on_start_button_pressed()
