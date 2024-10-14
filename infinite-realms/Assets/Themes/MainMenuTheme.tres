@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cmscl10ip6m0q"]
+
+[ext_resource type="FontFile" uid="uid://dk78ieyo5uumt" path="res://Assets/Fonts/SuperPixel-m2L8j.ttf" id="1_n77hs"]
+
+[resource]
+default_font = ExtResource("1_n77hs")
+default_font_size = 16
