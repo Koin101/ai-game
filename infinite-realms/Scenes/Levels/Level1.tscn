@@ -45,6 +45,7 @@ scale = Vector2(1.30733, 1.09788)
 [node name="Portal" parent="." instance=ExtResource("5_ilv3s")]
 position = Vector2(1612, 739)
 scale = Vector2(3, 3)
+Password = "medieval"
 
 [node name="Grandpa" parent="." instance=ExtResource("6_7v12e")]
 z_index = 5

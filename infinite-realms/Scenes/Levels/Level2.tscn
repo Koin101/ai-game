@@ -41,3 +41,4 @@ position_smoothing_enabled = true
 [node name="Portal" parent="." instance=ExtResource("4_bjcyr")]
 position = Vector2(1801, 958)
 scale = Vector2(2.5, 2.5)
+Password = "foxtrot"

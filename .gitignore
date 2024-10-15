@@ -16,3 +16,6 @@ mono_crash.*.json
 infinite-realms/.vs/Infinite Realms/FileContentIndex/9133446b-5190-40c3-a9df-3c24ea5d9951.vsidx
 infinite-realms/.vs/Infinite Realms/FileContentIndex/467dcd94-1d36-4e8d-994e-bc3676e2e389.vsidx
 *.vsidx
+infinite-realms/models/Phi-3-mini-4k-instruct-q4.gguf
+infinite-realms/llama.log
+*.gguf
