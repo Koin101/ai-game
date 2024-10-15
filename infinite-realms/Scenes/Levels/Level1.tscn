@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://tqafr5emubxp"]
+[gd_scene load_steps=8 format=4 uid="uid://tqafr5emubxp"]
 
 [ext_resource type="Texture2D" uid="uid://cn8u0aat2m5l3" path="res://Assets/LevelBackgrounds/FuturisticApocolypsWorld.png" id="1_70ajm"]
 [ext_resource type="TileSet" uid="uid://dhuc2415b23j1" path="res://Assets/TileSets/TilesAndProps.tres" id="2_vvsog"]
@@ -43,14 +43,11 @@ scale = Vector2(0.849386, 0.666678)
 position = Vector2(962, 733)
 scale = Vector2(1.30733, 1.09788)
 
-[node name="Camera2D" type="Camera2D" parent="MainCharacter"]
-zoom = Vector2(1.5, 1.5)
-position_smoothing_enabled = true
-
 [node name="Portal" parent="." instance=ExtResource("5_ilv3s")]
 position = Vector2(1612, 739)
 scale = Vector2(3, 3)
 Password = "medieval"
+
 [node name="Grandpa" parent="." instance=ExtResource("6_7v12e")]
 z_index = 5
 position = Vector2(220, 979)
