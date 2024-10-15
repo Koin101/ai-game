@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://7pty3mcogb4m" path="res://Scenes/Ladder.tscn" id="4_a22uy"]
 [ext_resource type="PackedScene" uid="uid://7a6e1vq2yr1x" path="res://Scenes/portal.tscn" id="5_ilv3s"]
 [ext_resource type="PackedScene" uid="uid://cng6urhjnd8s2" path="res://Scenes/grandpa.tscn" id="6_7v12e"]
+[ext_resource type="AudioStream" uid="uid://chut314rvjtjl" path="res://Assets/Sounds/Music/Pixel Dreamer.mp3" id="7_ctk4b"]
 
 [node name="Hub" type="Node2D"]
 
@@ -42,11 +43,14 @@ scale = Vector2(0.849386, 0.666678)
 position = Vector2(962, 733)
 scale = Vector2(1.30733, 1.09788)
 
+[node name="Camera2D" type="Camera2D" parent="MainCharacter"]
+zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true
+
 [node name="Portal" parent="." instance=ExtResource("5_ilv3s")]
 position = Vector2(1612, 739)
 scale = Vector2(3, 3)
 Password = "medieval"
-
 [node name="Grandpa" parent="." instance=ExtResource("6_7v12e")]
 z_index = 5
 position = Vector2(220, 979)
@@ -62,3 +66,8 @@ limit_right = 1920
 limit_bottom = 1080
 limit_smoothed = true
 position_smoothing_enabled = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ctk4b")
+volume_db = -10.805
+autoplay = true

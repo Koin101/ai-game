@@ -110,7 +110,7 @@ public partial class MainCharacter : CharacterBody2D
 
 
 		Vector2 direction = Input.GetVector("Move_Left", "Move_Right",
-			"ui_up", "ui_down");
+			"Move_Up", "Move_Down");
 		if (direction != Vector2.Zero)
 		{
 			velocity.X = direction.X * Speed;

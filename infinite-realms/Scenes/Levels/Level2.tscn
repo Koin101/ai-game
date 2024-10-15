@@ -38,6 +38,12 @@ limit_bottom = 1080
 limit_smoothed = true
 position_smoothing_enabled = true
 
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_cvkcq")
+volume_db = -10.805
+autoplay = true
+
 [node name="Portal" parent="." instance=ExtResource("4_bjcyr")]
 position = Vector2(1801, 958)
 scale = Vector2(2.5, 2.5)

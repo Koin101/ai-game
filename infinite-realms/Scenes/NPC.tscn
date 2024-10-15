@@ -101,12 +101,13 @@ script = ExtResource("5_flcb2")
 stream = SubResource("AudioStreamRandomizer_373d1")
 
 [node name="LineEdit" type="LineEdit" parent="."]
-offset_left = -77.0
-offset_top = -75.0
-offset_right = 113.0
-offset_bottom = -38.0
+offset_left = -63.0
+offset_top = -92.0
+offset_right = 67.0
+offset_bottom = -36.0
 script = ExtResource("11_f6sit")
 
 [connection signal="GdllamaAvailable" from="LineEdit" to="." method="OnGdllamaAvailable"]
 [connection signal="GdllamaUpdated" from="LineEdit" to="." method="OnGdllamaUpdated"]
 [connection signal="text_submitted" from="LineEdit" to="." method="OnLineEditTextSubmitted"]
+volume_db = 7.027
