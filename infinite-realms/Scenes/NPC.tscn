@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ch8tx3ibk3qvj"]
+[gd_scene load_steps=20 format=3 uid="uid://ch8tx3ibk3qvj"]
 
 [ext_resource type="Texture2D" uid="uid://ciaghsdmix784" path="res://Assets/Sprites/2 Punk/Idle.png" id="1_e8kkj"]
 [ext_resource type="Script" path="res://Scripts/Npc.cs" id="1_kiqig"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://b8w2eggspy1m4" path="res://Assets/Sounds/Sfx/NPC_3.mp3" id="7_uby70"]
 [ext_resource type="AudioStream" uid="uid://514unktddido" path="res://Assets/Sounds/Sfx/NPC_4.mp3" id="8_yh3t6"]
 [ext_resource type="AudioStream" uid="uid://ckl1c7moqds5j" path="res://Assets/Sounds/Sfx/NPC_5.mp3" id="9_2qemw"]
+[ext_resource type="Script" path="res://Scripts/line_edit.gd" id="11_f6sit"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vdoon"]
 atlas = ExtResource("1_e8kkj")
@@ -98,3 +99,15 @@ script = ExtResource("5_flcb2")
 
 [node name="SpeakingSound" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_373d1")
+volume_db = 7.0
+
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_left = -77.0
+offset_top = -75.0
+offset_right = 113.0
+offset_bottom = -38.0
+script = ExtResource("11_f6sit")
+
+[connection signal="GdllamaAvailable" from="LineEdit" to="." method="OnGdllamaAvailable"]
+[connection signal="GdllamaUpdated" from="LineEdit" to="." method="OnGdllamaUpdated"]
+[connection signal="text_submitted" from="LineEdit" to="." method="OnLineEditTextSubmitted"]
