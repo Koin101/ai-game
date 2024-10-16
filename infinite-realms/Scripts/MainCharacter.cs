@@ -13,6 +13,7 @@ public partial class MainCharacter : CharacterBody2D
 	public AnimatedSprite2D _animatedSprite;
 	public bool _isJumping = false;
 	public bool _isChatting = false;
+	public bool _paused = false;
 	public readonly System.Collections.Generic.Dictionary<String, AudioStreamPlayer2D> _sounds = new();
 	public Vector2 _initialPosition;
 	public bool climbing = false;
@@ -46,6 +47,8 @@ public partial class MainCharacter : CharacterBody2D
 			var currentScene = GetTree().CurrentScene;
 			currentScene.GetNode<TileMapLayer>("PlatformLayer").Visible = !currentScene.GetNode<TileMapLayer>("PlatformLayer").Visible;
 		}
+		
+		
 
 		// Add the gravity.
 		if (!IsOnFloor() && !climbing )

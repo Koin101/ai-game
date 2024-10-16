@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1o5putwlbfsa"]
+
+[ext_resource type="Texture2D" uid="uid://bwa3lvdfm6it" path="res://Assets/LevelBackgrounds/cave.png" id="1_erjxx"]
+[ext_resource type="Script" path="res://Scripts/IntroText.cs" id="1_lbtiy"]
+[ext_resource type="Theme" uid="uid://cmscl10ip6m0q" path="res://Assets/Themes/MainMenuTheme.tres" id="2_nqquk"]
+
+[node name="IntroText" type="Control"]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lbtiy")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.41598, 0.41598, 0.41598, 1)
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_erjxx")
+
+[node name="StoryText1" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -518.0
+offset_top = -465.0
+offset_right = 541.0
+offset_bottom = 522.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_nqquk")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 32
+text = "In a universe where the boundaries of reality stretch beyond comprehension, you are an interdimensional traveler, destined to explore the Infinite Realms. Your home world, once a place of harmony, now crumbles under the weight of a mysterious plague. No healer, no sorcerer, and no ancient text can reveal its cure. Only you can venture beyond the known and into the multiverse in search of salvation.
+
+Each realm you enter is a new world—vast, strange, and perilous—connected by threads of forgotten magic and hidden portals. Some realms are lush with towering forests, others barren wastelands of shifting sands or floating islands suspended in the sky. Each one is filled with obstacles, puzzles, and ancient beings who guard fragments of forgotten knowledge.
+
+But time is your greatest enemy. The plague tightens its grip on your world, and every moment spent in these other dimensions draws you closer to the edge of destruction.
+
+Press ENTER to continue...."
+visible_characters = 0
+visible_ratio = 0.0

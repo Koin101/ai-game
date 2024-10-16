@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://buvripm3r2kr1"]
+
+[ext_resource type="Script" path="res://Scripts/OptionsMenu.cs" id="1_gnhho"]
+[ext_resource type="Theme" uid="uid://cmscl10ip6m0q" path="res://Assets/Themes/MainMenuTheme.tres" id="1_nl33e"]
+[ext_resource type="Texture2D" uid="uid://jlu4xsf42ouh" path="res://Assets/LevelBackgrounds/Forest.png" id="1_yucsc"]
+
+[node name="OptionsMenu" type="Control"]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_gnhho")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+z_index = -2
+clip_contents = true
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 1
+offset_right = 3840.0
+offset_bottom = 2160.0
+scale = Vector2(0.5, 0.5)
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+z_index = -5
+layout_mode = 2
+texture = ExtResource("1_yucsc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.5
+offset_top = -23.0
+offset_right = 112.5
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_nl33e")
+text = "No Options for now"
+
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_nl33e")
+text = "Return to Menu"
+flat = true
+
+[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
