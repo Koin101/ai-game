@@ -11,12 +11,13 @@ public partial class MainMenu : Control
 
 	private void _on_start_button_pressed()
 	{
-		GetTree().ChangeSceneToFile("res://Scenes/Levels/Level1.tscn");
+		GetTree().ChangeSceneToFile("res://Scenes/IntroText.tscn");
 	}
 	
 	private void _on_options_button_pressed()
 	{
-		
+		GetTree().ChangeSceneToFile("res://Scenes/OptionsMenu.tscn");
+
 	}
 	
 	private void _on_exit_button_pressed()
