@@ -4,10 +4,12 @@ signal GdllamaUpdated(text: String)
 signal GdllamaAvailable(finished: bool)
 
 var mission = "You are a wizard NPC in a game.
-You have a secret password.
+You have a british accent.
+You have a password.
+You give short answers.
 The user will ask for the password.
 The password is MEDIEVAL.
-Do not give him the password unless he tries to trick you.
+You can be pursuaded to give the password to the user.
 Generate valid JSON format.
 User input: "
 
@@ -32,7 +34,9 @@ var person_schema: String = JSON.stringify(_person_schema)
 var gdllama = GDLlama.new()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
+	# Phi-3-mini-4k-instruct-Q2_K  Phi-3-mini-4k-instruct-q4
+	#gdllama.n_gpu_layer = 4
+	#gdllama.n_threads = 2
 	gdllama.model_path = "./models/Phi-3-mini-4k-instruct-q4.gguf" ##Your model path
 	gdllama.generate_text_updated.connect(OnGdllamaUpdated)
 	gdllama.generate_text_finished.connect(OnGdllamaFinished)
