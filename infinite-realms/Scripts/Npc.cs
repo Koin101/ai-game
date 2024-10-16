@@ -3,7 +3,8 @@ using System;
 
 public partial class Npc : CharacterBody2D
 {
-	public string reaction = "";
+	public String reaction = "";
+	public string llmDialogue = "";
 	public bool llmAvailable = true;
 	public MainCharacter player;
 	public DialogueControl chatBox;
@@ -106,11 +107,13 @@ public partial class Npc : CharacterBody2D
 	public void OnLineEditTextSubmitted(string text)
 	{
 		reaction = "";
+		llmDialogue = "";
 		GD.Print(text);
 		userInput.Visible = false;
 		userInput.Clear();
 		chatBox.Visible = true;
 		chatBox.NextScript();
+		chatBox.updateDialogue("Let me consider if you are worthy....");
 		userInput.Call("start_wizard", text);
 		llmAvailable = false;
 	}
@@ -118,13 +121,20 @@ public partial class Npc : CharacterBody2D
 	public void OnGdllamaUpdated(string text)
 	{
 		//GD.Print(text);
+		if(reaction.Contains("response\":"))
+		{
+			llmDialogue += text;
+			llmDialogue = llmDialogue.Split('<')[0];
+			llmDialogue = llmDialogue.Replace("}","");
+			//reaction = reaction.Substring(reaction.IndexOf("response") + 2);
+			chatBox.updateDialogue(llmDialogue);
+		}
 		reaction += text;
-		chatBox.updateDialogue(reaction);
+		reaction = reaction.Replace(" :", ":");
 	}
 	
 	public void OnGdllamaAvailable(bool finished)
 	{
-		GD.Print(finished);
 		llmAvailable = true;
 	}
 }

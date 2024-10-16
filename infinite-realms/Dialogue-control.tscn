@@ -28,11 +28,11 @@ texture_filter = 1
 layout_mode = 0
 offset_left = 4.0
 offset_top = 3.0
-offset_right = 284.0
+offset_right = 311.0
 offset_bottom = 60.0
 scale = Vector2(0.6, 0.6)
 text = "Hello there"
-scroll_active = false
+scroll_following = true
 tab_size = 1
 
 [node name="MoreTextIndicator" type="TextureRect" parent="NinePatchRect"]
