@@ -23,4 +23,17 @@ public partial class SoundPlayer : AudioStreamPlayer
 	{
 		_sounds[name].Play();
 	}
+
+	public static void Stop(string name)
+	{
+		_sounds[name].Stop();
+	}
+
+	public static void StopAll()
+	{
+		foreach (var sound in _sounds.Keys)
+		{
+			_sounds[sound].Stop();
+		}
+	}
 }

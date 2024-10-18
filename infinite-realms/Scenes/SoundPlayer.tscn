@@ -1,10 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgrf4wlcs3av2"]
+[gd_scene load_steps=4 format=3 uid="uid://bgrf4wlcs3av2"]
 
 [ext_resource type="Script" path="res://Scripts/SoundPlayer.cs" id="1_behqi"]
 [ext_resource type="AudioStream" uid="uid://km66su55a580" path="res://Assets/Sounds/Sfx/Portal.mp3" id="2_mccio"]
+[ext_resource type="AudioStream" uid="uid://pfqqjdymhqqw" path="res://Assets/Sounds/Music/City Echoes.mp3" id="3_5bghe"]
 
 [node name="SoundPlayer" type="AudioStreamPlayer"]
 script = ExtResource("1_behqi")
 
 [node name="PortalSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_mccio")
+
+[node name="CityEchoes" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_5bghe")
+volume_db = -10.805
