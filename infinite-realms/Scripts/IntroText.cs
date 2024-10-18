@@ -11,7 +11,8 @@ public partial class IntroText : Control
 	public override void _Ready()
 	{
 		_loreNode = GetNode<RichTextLabel>("StoryText1");
-		_animateSpeed = 6.0f;
+		// The lower the faster
+		_animateSpeed = 5.0f;
 		_animate = true;
 
 	}

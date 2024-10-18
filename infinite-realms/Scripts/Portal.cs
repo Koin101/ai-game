@@ -90,7 +90,7 @@ public partial class Portal : Area2D
 		currentLevel++;
 		if (currentLevel > LAST)
 		{
-			currentLevel = 1;
+			GetTree().ChangeSceneToFile("res://Scenes/EndScene.tscn");
 		}
 
 		currentScene = FILE_PATH + currentLevel.ToString() + ".tscn";
