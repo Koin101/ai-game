@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://tqafr5emubxp"]
+[gd_scene load_steps=9 format=4 uid="uid://tqafr5emubxp"]
 
 [ext_resource type="Texture2D" uid="uid://cn8u0aat2m5l3" path="res://Assets/LevelBackgrounds/FuturisticApocolypsWorld.png" id="1_70ajm"]
 [ext_resource type="TileSet" uid="uid://dhuc2415b23j1" path="res://Assets/TileSets/TilesAndProps.tres" id="2_vvsog"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://7a6e1vq2yr1x" path="res://Scenes/portal.tscn" id="5_ilv3s"]
 [ext_resource type="PackedScene" uid="uid://cng6urhjnd8s2" path="res://Scenes/grandpa.tscn" id="6_7v12e"]
 [ext_resource type="AudioStream" uid="uid://chut314rvjtjl" path="res://Assets/Sounds/Music/Pixel Dreamer.mp3" id="7_ctk4b"]
+[ext_resource type="PackedScene" uid="uid://cjtp7e311ma0j" path="res://Scenes/chest.tscn" id="8_midar"]
 
 [node name="Hub" type="Node2D"]
 
@@ -43,6 +44,18 @@ scale = Vector2(0.849386, 0.666678)
 position = Vector2(962, 733)
 scale = Vector2(1.30733, 1.09788)
 
+[node name="Ladder4" parent="." instance=ExtResource("4_a22uy")]
+position = Vector2(1130, 582)
+scale = Vector2(1, 0.963313)
+
+[node name="Ladder5" parent="." instance=ExtResource("4_a22uy")]
+position = Vector2(1055, 469)
+scale = Vector2(1, 0.82984)
+
+[node name="Ladder6" parent="." instance=ExtResource("4_a22uy")]
+position = Vector2(762, 363)
+scale = Vector2(1.09481, 0.840804)
+
 [node name="Portal" parent="." instance=ExtResource("5_ilv3s")]
 position = Vector2(1612, 739)
 scale = Vector2(3, 3)
@@ -68,3 +81,7 @@ position_smoothing_enabled = true
 stream = ExtResource("7_ctk4b")
 volume_db = -10.805
 autoplay = true
+
+[node name="Chest" parent="." instance=ExtResource("8_midar")]
+position = Vector2(108, 277)
+scale = Vector2(0.2, 0.2)

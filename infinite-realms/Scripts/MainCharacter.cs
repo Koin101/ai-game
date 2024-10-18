@@ -17,6 +17,7 @@ public partial class MainCharacter : CharacterBody2D
 	public readonly System.Collections.Generic.Dictionary<String, AudioStreamPlayer2D> _sounds = new();
 	public Vector2 _initialPosition;
 	public bool climbing = false;
+	
 	public override void _Ready()
 	{
 		//_animatedSprite = GetNode<AnimatedSprite2D>("MainCharAnimation");
@@ -29,12 +30,14 @@ public partial class MainCharacter : CharacterBody2D
 		// _animatedSprite = GetNode<AnimatedSprite2D>("MainCharAnimation");
 		// Store the character's initial position
 		_initialPosition = Position;
+
+		
 	}
 
 	public override void _PhysicsProcess(double delta)
 	{
 
-		Console.WriteLine(climbing);
+		// Console.WriteLine(climbing);
 		if (_isChatting)
 		{
 			_animatedSprite.Play("Idle");
@@ -108,7 +111,13 @@ public partial class MainCharacter : CharacterBody2D
 			_sounds["RunningSound"].Stop();
 
 		}
-		else if (IsOnFloor()) _isJumping = false;
+		else if (IsOnFloor())
+		{
+			_isJumping = false;
+
+
+
+		}
 
 
 
