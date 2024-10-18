@@ -49,7 +49,7 @@ public partial class Portal : Area2D
 		userInput.Visible = false;
 		portalBox.Visible = false;
 
-		if (Password == null)
+		if (Password == null || Flags.GetFlag("cleared" + currentLevel))
 		{
 			portalPermission = true;
 		}
@@ -109,6 +109,8 @@ public partial class Portal : Area2D
 		if (text.ToLower().Contains(Password ?? ""))
 		{
 			portalPermission = true;
+			Flags.SetFlag("cleared" + currentLevel);
+
 		} else
 		{
 			portalBox.Visible = true;
