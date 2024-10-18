@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cywhrj2ds26c5"]
+[gd_scene load_steps=5 format=3 uid="uid://cywhrj2ds26c5"]
 
 [ext_resource type="Script" path="res://Scripts/EndScene.cs" id="1_r0xp5"]
 [ext_resource type="Texture2D" uid="uid://ojnfenht58r7" path="res://Assets/LevelBackgrounds/City.png" id="2_0baie"]
 [ext_resource type="Theme" uid="uid://cmscl10ip6m0q" path="res://Assets/Themes/MainMenuTheme.tres" id="3_53h78"]
+[ext_resource type="AudioStream" uid="uid://dfh5jqkonfdg" path="res://Assets/Sounds/Music/Restoration Dawn.mp3" id="4_kuw66"]
 
 [node name="EndScene" type="Control"]
 layout_mode = 3
@@ -38,3 +39,8 @@ But as you gaze at the fading light of the Heart, a quiet understanding settles 
 Press enter to continue...."
 visible_characters = 0
 visible_ratio = 0.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_kuw66")
+volume_db = -10.805
+autoplay = true

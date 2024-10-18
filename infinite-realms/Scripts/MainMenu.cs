@@ -7,6 +7,7 @@ public partial class MainMenu : Control
 	public override void _Ready()
 	{
 		// GetNode<Button>("VBoxContainer/StartButton").GrabFocus();
+		SoundPlayer.Play("CityEchoes");
 	}
 
 	private void _on_start_button_pressed()

@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=4 uid="uid://tqafr5emubxp"]
+[gd_scene load_steps=10 format=4 uid="uid://tqafr5emubxp"]
 
 [ext_resource type="Texture2D" uid="uid://cn8u0aat2m5l3" path="res://Assets/LevelBackgrounds/FuturisticApocolypsWorld.png" id="1_70ajm"]
+[ext_resource type="Script" path="res://Scripts/Hub.cs" id="1_ryoyi"]
 [ext_resource type="TileSet" uid="uid://dhuc2415b23j1" path="res://Assets/TileSets/TilesAndProps.tres" id="2_vvsog"]
 [ext_resource type="PackedScene" uid="uid://ch8tx3ibk3qvj" path="res://Scenes/NPC.tscn" id="3_ooqnf"]
 [ext_resource type="PackedScene" uid="uid://bsj8771rr1qqi" path="res://Scenes/Ladder.tscn" id="4_a22uy"]
@@ -10,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cjtp7e311ma0j" path="res://Scenes/chest.tscn" id="8_midar"]
 
 [node name="Hub" type="Node2D"]
+script = ExtResource("1_ryoyi")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(1920, 1080)

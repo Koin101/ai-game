@@ -8,6 +8,7 @@ public partial class Chest : Node2D
 	public MainCharacter player;
 	public Area2D chestArea;
 	public Sprite2D keyIndicator;
+	private readonly System.Collections.Generic.Dictionary<String, AudioStreamPlayer2D> _sounds = new();
 	public void _on_chest_area_body_entered(MainCharacter body)
 	{
 		GD.Print("Chest entered");
@@ -31,6 +32,12 @@ public partial class Chest : Node2D
 		chestArea = GetNode<Area2D>("ChestArea");
 		keyIndicator = GetNode<Sprite2D>("KeyIndicator");
 		keyIndicator.Visible = false;
+
+		var sounds = this.FindChildren("*", "AudioStreamPlayer2D");
+		foreach (var sound in sounds)
+		{
+			_sounds.Add(sound.Name, (AudioStreamPlayer2D)sound);
+		}
 	}
 
 	public override void _Process(double delta)
@@ -43,6 +50,7 @@ public partial class Chest : Node2D
 			opened = true;
 			keyIndicator.Visible = false;
 			GetNode<AnimatedSprite2D>("OpenCloseAnimation").Frame = 1;
+			_sounds["ChestSound"].Play();
 		}
 	}
 }
