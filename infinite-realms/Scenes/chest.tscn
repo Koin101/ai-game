@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cjtp7e311ma0j"]
+[gd_scene load_steps=8 format=3 uid="uid://cjtp7e311ma0j"]
 
 [ext_resource type="Script" path="res://Scripts/Chest.cs" id="1_k5xad"]
 [ext_resource type="Texture2D" uid="uid://ox0jd5553xja" path="res://Assets/Sprites/Chest.png" id="1_uve80"]
+[ext_resource type="Texture2D" uid="uid://dsmr2k6tmw5t5" path="res://Assets/UI/Keys.png" id="3_gwe5w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ca5y"]
 atlas = ExtResource("1_uve80")
@@ -40,6 +41,14 @@ animation = &"Chest"
 [node name="ChestCollision" type="CollisionShape2D" parent="ChestArea"]
 position = Vector2(-6.5, 38.5)
 shape = SubResource("RectangleShape2D_yoi0y")
+
+[node name="KeyIndicator" type="Sprite2D" parent="."]
+position = Vector2(-13, -275)
+scale = Vector2(6.48611, 6.1875)
+texture = ExtResource("3_gwe5w")
+hframes = 5
+vframes = 8
+frame = 5
 
 [connection signal="body_entered" from="ChestArea" to="." method="_on_chest_area_body_entered"]
 [connection signal="body_exited" from="ChestArea" to="." method="_on_chest_area_body_exited"]
