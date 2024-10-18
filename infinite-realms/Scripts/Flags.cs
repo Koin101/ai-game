@@ -18,7 +18,7 @@ public static class Flags
 
 	public static bool GetFlag(String flag)
 	{
-		return _flags[flag];
+		return _flags.ContainsKey(flag) && _flags[flag];
 	}
 
 

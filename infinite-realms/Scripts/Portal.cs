@@ -117,6 +117,7 @@ public partial class Portal : Area2D
 			userInput.Visible = false;
 			if (currentLevel != 1)
 			{
+				Flags.SetFlag("failed" + currentLevel);
 				// If you get the password wrong you are sent back to level 1 if you are not already in level 1
 				TeleportPlayer(1);
 			}
