@@ -20,3 +20,8 @@ infinite-realms/models/Phi-3-mini-4k-instruct-q4.gguf
 infinite-realms/.vs/Infinite Realms/v17/.suo
 infinite-realms/llava.log
 infinite-realms/addons/godot_llm/bin/~libgodot_llm.windows.release.amd64.dll
+infinite-realms/.vs/Infinite Realms/v17/.suo
+infinite-realms/llama.log
+*.log
+infinite-realms/.vs/Infinite Realms/DesignTimeBuild/.dtbcache.v2
+*.v2

@@ -6,10 +6,10 @@ using System.Collections.Generic;
 
 public partial class DialogueControl : Control
 {
-	Array<Dictionary> dialogue;
-	private int currentDialogueID;
-	RichTextLabel mainText;
-	TextureRect moreTextIndicator;
+	public Array<Dictionary> dialogue;
+	public int currentDialogueID;
+	public RichTextLabel mainText;
+	public TextureRect moreTextIndicator;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -54,5 +54,11 @@ public partial class DialogueControl : Control
 			moreTextIndicator.Visible=false;
 		}
 		return true;
+	}
+	
+	public void updateDialogue(string Line)
+	{
+		GD.Print(Line.Trim());
+		mainText.Text = Line.Trim();
 	}
 }
