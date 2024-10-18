@@ -12,6 +12,7 @@ public partial class Portal : Area2D
 	public bool portalPermission = false;
 	public bool playerInRange = false;
 	public bool isChatting = false;
+	int currentLevel;
 	PortalDialogue portalBox;
 	public LineEdit userInput;
 	private Sprite2D keyIndicator;
@@ -42,9 +43,16 @@ public partial class Portal : Area2D
 		keyIndicator = GetNode<Sprite2D>("KeyIndicator");
 		portalBox = GetNode<PortalDialogue>("PortalDialogue");
 		userInput = GetNode<LineEdit>("LineEdit");
+		String currentScene = GetTree().CurrentScene.SceneFilePath;
+		currentLevel = String.Join("", currentScene.Where(char.IsDigit)).ToInt();
 		keyIndicator.Visible = false;
 		userInput.Visible = false;
 		portalBox.Visible = false;
+
+		if (Password == null)
+		{
+			portalPermission = true;
+		}
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -52,7 +60,7 @@ public partial class Portal : Area2D
 	{
 		if (playerInRange && portalPermission) 
 		{
-			TeleportPlayer();
+			TeleportPlayer(currentLevel + 1);
 		}
 
 		if (Input.IsActionJustPressed("chat") && playerInRange && player.IsOnFloor())
@@ -82,24 +90,22 @@ public partial class Portal : Area2D
 		}
 	}
 
-	public void TeleportPlayer()
+	public void TeleportPlayer(int level)
 	{
 		SoundPlayer.Play("PortalSound");
-		String currentScene = GetTree().CurrentScene.SceneFilePath;
-		int currentLevel = String.Join("", currentScene.Where(char.IsDigit)).ToInt();
-		currentLevel++;
-		if (currentLevel > LAST)
+		if (level > LAST)
 		{
 			GetTree().ChangeSceneToFile("res://Scenes/EndScene.tscn");
 		}
 
-		currentScene = FILE_PATH + currentLevel.ToString() + ".tscn";
+		String nextScene = FILE_PATH + level.ToString() + ".tscn";
 
-		GetTree().CallDeferred("change_scene_to_file", currentScene);
+		GetTree().CallDeferred("change_scene_to_file", nextScene);
 	}
 
 	public void OnLineEditTextSubmitted(string text)
 	{
+		GD.Print(currentLevel);
 		if (text.ToLower().Contains(Password ?? ""))
 		{
 			portalPermission = true;
@@ -107,6 +113,11 @@ public partial class Portal : Area2D
 		{
 			portalBox.Visible = true;
 			userInput.Visible = false;
+			if (currentLevel != 1)
+			{
+				// If you get the password wrong you are sent back to level 1 if you are not already in level 1
+				TeleportPlayer(1);
+			}
 		}
 		userInput.Clear();
 	}
