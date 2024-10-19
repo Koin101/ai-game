@@ -85,5 +85,6 @@ volume_db = -10.805
 autoplay = true
 
 [node name="Chest" parent="." instance=ExtResource("8_midar")]
-position = Vector2(108, 277)
+position = Vector2(294, 1002)
 scale = Vector2(0.2, 0.2)
+hintText = "HI HI u got me  al;dkfjaoiwefja;ldjfa;fefa"

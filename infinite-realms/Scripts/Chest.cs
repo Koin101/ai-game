@@ -9,6 +9,10 @@ public partial class Chest : Node2D
 	public Area2D chestArea;
 	public Sprite2D keyIndicator;
 	private readonly System.Collections.Generic.Dictionary<String, AudioStreamPlayer2D> _sounds = new();
+	private RichTextLabel _hintText;
+	private float _animateSpeed = 4.0f;
+	private bool _startAnimation = false;
+	[Export] public string hintText = "This is a Hint";
 	public void _on_chest_area_body_entered(MainCharacter body)
 	{
 		GD.Print("Chest entered");
@@ -32,7 +36,8 @@ public partial class Chest : Node2D
 		chestArea = GetNode<Area2D>("ChestArea");
 		keyIndicator = GetNode<Sprite2D>("KeyIndicator");
 		keyIndicator.Visible = false;
-
+		_hintText = GetNode<RichTextLabel>("HintText");
+		_hintText.SetText(hintText);
 		var sounds = this.FindChildren("*", "AudioStreamPlayer2D");
 		foreach (var sound in sounds)
 		{
@@ -51,6 +56,14 @@ public partial class Chest : Node2D
 			keyIndicator.Visible = false;
 			GetNode<AnimatedSprite2D>("OpenCloseAnimation").Frame = 1;
 			_sounds["ChestSound"].Play();
+			_startAnimation = true;
 		}
+		
+		if(_startAnimation) AnimateText();
+	}
+	
+	private void AnimateText()
+	{
+		_hintText.VisibleRatio += (float) (1.0 / _hintText.Text.Length / _animateSpeed);
 	}
 }
