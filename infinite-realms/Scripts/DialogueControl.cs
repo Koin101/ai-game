@@ -43,6 +43,11 @@ public partial class DialogueControl : Control
 	public bool NextScript()
 	{
 		currentDialogueID++;
+		if(mainText.Text.Contains("MEDIEVAL"))
+		{
+			currentDialogueID++;
+		}
+		
 		if (currentDialogueID >= dialogue.Count)
 		{
 			return false;
