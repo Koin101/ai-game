@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://cjtp7e311ma0j"]
+
+[ext_resource type="Script" path="res://Scripts/Chest.cs" id="1_k5xad"]
+[ext_resource type="Texture2D" uid="uid://ox0jd5553xja" path="res://Assets/Sprites/Chest.png" id="1_uve80"]
+[ext_resource type="Texture2D" uid="uid://dsmr2k6tmw5t5" path="res://Assets/UI/Keys.png" id="3_gwe5w"]
+[ext_resource type="AudioStream" uid="uid://ry6w0v77qs20" path="res://Assets/Sounds/Sfx/Chest.mp3" id="4_x6yov"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ca5y"]
+atlas = ExtResource("1_uve80")
+region = Rect2(0, 312, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_di6im"]
+atlas = ExtResource("1_uve80")
+region = Rect2(208, 312, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s6yvy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ca5y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_di6im")
+}],
+"loop": true,
+"name": &"Chest",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yoi0y"]
+size = Vector2(163, 119)
+
+[node name="Chest" type="Node2D"]
+script = ExtResource("1_k5xad")
+
+[node name="OpenCloseAnimation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_s6yvy")
+animation = &"Chest"
+
+[node name="ChestArea" type="Area2D" parent="."]
+
+[node name="ChestCollision" type="CollisionShape2D" parent="ChestArea"]
+position = Vector2(-6.5, 38.5)
+shape = SubResource("RectangleShape2D_yoi0y")
+
+[node name="KeyIndicator" type="Sprite2D" parent="."]
+position = Vector2(-13, -275)
+scale = Vector2(6.48611, 6.1875)
+texture = ExtResource("3_gwe5w")
+hframes = 5
+vframes = 8
+frame = 5
+
+[node name="ChestSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_x6yov")
+volume_db = 10.541
+
+[connection signal="body_entered" from="ChestArea" to="." method="_on_chest_area_body_entered"]
+[connection signal="body_exited" from="ChestArea" to="." method="_on_chest_area_body_exited"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://onjjv5yuwemt" path="res://Scenes/main_character.tscn" id="1_0ejjs"]
 [ext_resource type="TileSet" uid="uid://dhuc2415b23j1" path="res://Assets/TileSets/TilesAndProps.tres" id="1_3p4lm"]
-[ext_resource type="PackedScene" uid="uid://ch8tx3ibk3qvj" path="res://NPC.tscn" id="3_m21kn"]
+[ext_resource type="PackedScene" uid="uid://ch8tx3ibk3qvj" path="res://Scenes/NPC.tscn" id="3_m21kn"]
 
 [sub_resource type="CSharpScript" id="CSharpScript_p85j4"]
 script/source = "using Godot;

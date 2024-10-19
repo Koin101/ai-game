@@ -17,6 +17,7 @@ public partial class Npc : CharacterBody2D
 
 	public override void _Ready()
 	{
+		GD.Print(Flags.GetFlag("failed2"));
 		base._Ready();
 		// Get Nodes
 		player = GetNode<MainCharacter>("../Grandpa");

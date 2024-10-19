@@ -115,7 +115,6 @@ animation = &"Idle"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_u71bl")
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]

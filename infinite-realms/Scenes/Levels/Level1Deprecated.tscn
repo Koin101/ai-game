@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://l4upjfall6fc" path="res://Assets/LevelBackgrounds/Level1.png" id="2_83lxm"]
 [ext_resource type="TileSet" uid="uid://dhuc2415b23j1" path="res://Assets/TileSets/TilesAndProps.tres" id="2_84kxn"]
 [ext_resource type="PackedScene" uid="uid://onjjv5yuwemt" path="res://Scenes/main_character.tscn" id="3_nlhtj"]
-[ext_resource type="PackedScene" uid="uid://5tu4dnpoppot" path="res://Scenes/portal.tscn" id="5_purqx"]
+[ext_resource type="PackedScene" uid="uid://7a6e1vq2yr1x" path="res://Scenes/portal.tscn" id="5_purqx"]
 [ext_resource type="PackedScene" uid="uid://bp1f1j3xbwea1" path="res://Scenes/Border768x512.tscn" id="6_7b1dw"]
 
 [node name="Level1" type="Node2D"]

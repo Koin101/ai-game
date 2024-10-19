@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://cywhrj2ds26c5"]
+
+[ext_resource type="Script" path="res://Scripts/EndScene.cs" id="1_r0xp5"]
+[ext_resource type="Texture2D" uid="uid://ojnfenht58r7" path="res://Assets/LevelBackgrounds/City.png" id="2_0baie"]
+[ext_resource type="Theme" uid="uid://cmscl10ip6m0q" path="res://Assets/Themes/MainMenuTheme.tres" id="3_53h78"]
+[ext_resource type="AudioStream" uid="uid://dfh5jqkonfdg" path="res://Assets/Sounds/Music/Restoration Dawn.mp3" id="4_kuw66"]
+
+[node name="EndScene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("1_r0xp5")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.41598, 0.41598, 0.41598, 1)
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_0baie")
+expand_mode = 1
+
+[node name="EndText" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 51.0
+offset_right = 1469.0
+offset_bottom = 1080.0
+theme = ExtResource("3_53h78")
+theme_override_font_sizes/normal_font_size = 28
+text = "As the final shard clicks into place, the Heart of Eternity awakens, its pulsating light flooding the forgotten chamber. The air crackles with power as the artifact hums in your hands, resonating with the force of a thousand worlds. You can feel the cure—an ancient energy that defies understanding—flow through you. The long, harrowing journey through the realms, the battles fought, and the sacrifices made have all led to this moment.
+
+With a final breath, you open a portal to your home world. Stepping through, you find your once dying land now on the brink of collapse—grey skies, withered trees, and hollow faces of those you left behind. But as you release the Heart’s power, a wave of healing energy washes over everything. Slowly, the skies clear, life returns to the earth, and color blooms back into the world.
+
+Your people stand in awe, their pain fading, their strength returning. The plague has been vanquished, and peace restored. You, the traveler, have succeeded.
+
+But as you gaze at the fading light of the Heart, a quiet understanding settles over you. Though your world is saved, the Infinite Realms still pulse with secrets untold, waiting for the next brave soul to uncover their mysteries. The portals remain open, and your adventure... may not yet be over.
+
+Press enter to continue...."
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_kuw66")
+volume_db = -10.805
+autoplay = true
