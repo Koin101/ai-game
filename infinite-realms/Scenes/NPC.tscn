@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://ch8tx3ibk3qvj"]
 
-[ext_resource type="Texture2D" uid="uid://ciaghsdmix784" path="res://Assets/Sprites/2 Punk/Idle.png" id="1_e8kkj"]
 [ext_resource type="Script" path="res://Scripts/Npc.cs" id="1_kiqig"]
+[ext_resource type="Texture2D" uid="uid://bvawn2nmp6ooc" path="res://Assets/Sprites/Wizard/wizardNPC.png" id="2_bg6bm"]
 [ext_resource type="Texture2D" uid="uid://dsmr2k6tmw5t5" path="res://Assets/UI/Keys.png" id="3_a2v2r"]
 [ext_resource type="PackedScene" uid="uid://bl4mkvok1wem0" path="res://Scenes/Dialogue-control.tscn" id="4_b0qt6"]
 [ext_resource type="AudioStream" uid="uid://br74150fchu3m" path="res://Assets/Sounds/Sfx/NPC_1.mp3" id="5_3hlsj"]
@@ -12,40 +12,40 @@
 [ext_resource type="AudioStream" uid="uid://ckl1c7moqds5j" path="res://Assets/Sounds/Sfx/NPC_5.mp3" id="9_2qemw"]
 [ext_resource type="Script" path="res://Scripts/line_edit.gd" id="11_f6sit"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vdoon"]
-atlas = ExtResource("1_e8kkj")
-region = Rect2(0, 0, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhtgd"]
+atlas = ExtResource("2_bg6bm")
+region = Rect2(0, 0, 384, 365)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_58hax"]
-atlas = ExtResource("1_e8kkj")
-region = Rect2(48, 0, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_sj3fd"]
+atlas = ExtResource("2_bg6bm")
+region = Rect2(0, 391, 384, 365)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fh6xl"]
-atlas = ExtResource("1_e8kkj")
-region = Rect2(96, 0, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vp3e"]
+atlas = ExtResource("2_bg6bm")
+region = Rect2(384, 391, 384, 365)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wibxb"]
-atlas = ExtResource("1_e8kkj")
-region = Rect2(144, 0, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkvjg"]
+atlas = ExtResource("2_bg6bm")
+region = Rect2(0, 391, 384, 365)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8x1yr"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vdoon")
+"texture": SubResource("AtlasTexture_lhtgd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_58hax")
+"texture": SubResource("AtlasTexture_sj3fd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fh6xl")
+"texture": SubResource("AtlasTexture_6vp3e")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wibxb")
+"texture": SubResource("AtlasTexture_fkvjg")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 4.0
+"speed": 2.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_66y18"]
@@ -66,10 +66,13 @@ stream_4/stream = ExtResource("9_2qemw")
 script = ExtResource("1_kiqig")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-9, 4)
+scale = Vector2(0.125, 0.125)
 sprite_frames = SubResource("SpriteFrames_8x1yr")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.124172
+frame_progress = 0.738872
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-10, 7)
@@ -83,7 +86,7 @@ position = Vector2(-1, 7)
 shape = SubResource("RectangleShape2D_1xtmp")
 
 [node name="KeyIndicator" type="Sprite2D" parent="."]
-position = Vector2(-8.875, -23)
+position = Vector2(-11, -29)
 scale = Vector2(0.916667, 0.875)
 texture = ExtResource("3_a2v2r")
 hframes = 5
@@ -92,9 +95,9 @@ frame = 5
 
 [node name="DialogueBox" parent="." instance=ExtResource("4_b0qt6")]
 offset_left = -80.0
-offset_top = -64.0
+offset_top = -79.0
 offset_right = -40.0
-offset_bottom = -24.0
+offset_bottom = -39.0
 script = ExtResource("5_874dt")
 
 [node name="SpeakingSound" type="AudioStreamPlayer2D" parent="."]
@@ -103,9 +106,9 @@ volume_db = 7.0
 
 [node name="LineEdit" type="LineEdit" parent="."]
 offset_left = -77.0
-offset_top = -75.0
+offset_top = -81.0
 offset_right = 113.0
-offset_bottom = -38.0
+offset_bottom = -44.0
 script = ExtResource("11_f6sit")
 
 [connection signal="GdllamaAvailable" from="LineEdit" to="." method="OnGdllamaAvailable"]

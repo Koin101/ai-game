@@ -54,7 +54,7 @@ public partial class Npc : CharacterBody2D
 			OnLeaveChatDetection();
 		}
 
-		if (Input.IsActionJustPressed("chat") && playerInRange && player.IsOnFloor()) {
+		if (Input.IsActionJustPressed("chat") && playerInRange && player.IsOnFloor() && llmAvailable) {
 			if (!isChatting)
 			{
 				isChatting = true;
@@ -64,7 +64,7 @@ public partial class Npc : CharacterBody2D
 				chatBox.StartDialogue();
 				chatBox.Visible = true;
 				PlaySpeakingSound();
-			} else if(chatBox.currentDialogueID == 1 && llmAvailable)
+			} else if(chatBox.currentDialogueID == 1)
 			{
 				chatBox.Visible = false;
 				userInput.Visible = true;
@@ -82,8 +82,6 @@ public partial class Npc : CharacterBody2D
 				}
 			}
 		}
-
-
 	}
 
 	public void OnEnterChatDetection()
@@ -114,7 +112,6 @@ public partial class Npc : CharacterBody2D
 		userInput.Clear();
 		chatBox.Visible = true;
 		chatBox.NextScript();
-		chatBox.updateDialogue("Let me consider if you are worthy....");
 		userInput.Call("start_wizard", text);
 		llmAvailable = false;
 	}
