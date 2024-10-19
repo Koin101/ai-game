@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://tqafr5emubxp"]
+[gd_scene load_steps=11 format=4 uid="uid://tqafr5emubxp"]
 
 [ext_resource type="Texture2D" uid="uid://cn8u0aat2m5l3" path="res://Assets/LevelBackgrounds/FuturisticApocolypsWorld.png" id="1_70ajm"]
 [ext_resource type="Script" path="res://Scripts/Hub.cs" id="1_ryoyi"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cng6urhjnd8s2" path="res://Scenes/grandpa.tscn" id="6_7v12e"]
 [ext_resource type="AudioStream" uid="uid://chut314rvjtjl" path="res://Assets/Sounds/Music/Pixel Dreamer.mp3" id="7_ctk4b"]
 [ext_resource type="PackedScene" uid="uid://cjtp7e311ma0j" path="res://Scenes/chest.tscn" id="8_midar"]
+[ext_resource type="PackedScene" uid="uid://cxqqvjme4an3v" path="res://Scenes/NPC2.tscn" id="10_lrri8"]
 
 [node name="Hub" type="Node2D"]
 script = ExtResource("1_ryoyi")
@@ -87,4 +88,6 @@ autoplay = true
 [node name="Chest" parent="." instance=ExtResource("8_midar")]
 position = Vector2(294, 1002)
 scale = Vector2(0.2, 0.2)
-hintText = "HI HI u got me  al;dkfjaoiwefja;ldjfa;fefa"
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("10_lrri8")]
+position = Vector2(380, 635)

@@ -1,0 +1,100 @@
+[gd_scene load_steps=14 format=3 uid="uid://cxqqvjme4an3v"]
+
+[ext_resource type="Texture2D" uid="uid://d0ejg0fhsyvxk" path="res://Assets/Sprites/Shogun/shogun.png" id="1_78pn0"]
+[ext_resource type="Script" path="res://Scripts/Npc2.cs" id="1_baqv4"]
+[ext_resource type="Texture2D" uid="uid://dsmr2k6tmw5t5" path="res://Assets/UI/Keys.png" id="2_6rq78"]
+[ext_resource type="PackedScene" uid="uid://bl4mkvok1wem0" path="res://Scenes/Dialogue-control.tscn" id="3_k8xdo"]
+[ext_resource type="Script" path="res://Scripts/DialogueControl2.cs" id="4_fjig0"]
+[ext_resource type="Script" path="res://Scripts/line_edit2.gd" id="5_8a7u2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwoni"]
+atlas = ExtResource("1_78pn0")
+region = Rect2(0, 0, 384, 361)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khaye"]
+atlas = ExtResource("1_78pn0")
+region = Rect2(0, 386, 384, 361)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgynl"]
+atlas = ExtResource("1_78pn0")
+region = Rect2(384, 386, 384, 361)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4u2g"]
+atlas = ExtResource("1_78pn0")
+region = Rect2(0, 386, 384, 361)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xjelv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwoni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khaye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgynl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4u2g")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sstpe"]
+height = 38.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3orea"]
+size = Vector2(43.75, 37)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_baqv4")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-9, 4)
+scale = Vector2(0.125, 0.125)
+sprite_frames = SubResource("SpriteFrames_xjelv")
+animation = &"idle"
+frame_progress = 0.467258
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-10, 7)
+shape = SubResource("CapsuleShape2D_sstpe")
+disabled = true
+
+[node name="Chatdetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chatdetection"]
+position = Vector2(-0.125, 7)
+shape = SubResource("RectangleShape2D_3orea")
+
+[node name="KeyIndicator" type="Sprite2D" parent="."]
+position = Vector2(-11, -29)
+scale = Vector2(0.917, 0.875)
+texture = ExtResource("2_6rq78")
+hframes = 5
+vframes = 8
+frame = 5
+
+[node name="DialogueBox" parent="." instance=ExtResource("3_k8xdo")]
+offset_left = -80.0
+offset_top = -80.0
+offset_right = -40.0
+offset_bottom = -40.0
+script = ExtResource("4_fjig0")
+
+[node name="SpeakingSound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_left = -77.0
+offset_top = -81.0
+offset_right = 113.0
+offset_bottom = -44.0
+script = ExtResource("5_8a7u2")
+
+[connection signal="GdllamaAvailable" from="LineEdit" to="." method="OnGdllamaAvailable"]
+[connection signal="GdllamaUpdated" from="LineEdit" to="." method="OnGdllamaUpdated"]
+[connection signal="text_submitted" from="LineEdit" to="." method="OnLineEditTextSubmitted"]

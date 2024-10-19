@@ -12,7 +12,7 @@ public partial class Chest : Node2D
 	private RichTextLabel _hintText;
 	private float _animateSpeed = 4.0f;
 	private bool _startAnimation = false;
-	[Export] public string hintText = "This is a Hint";
+	[Export] public string hintText = "Ask for a part and not the whole";
 	public void _on_chest_area_body_entered(MainCharacter body)
 	{
 		GD.Print("Chest entered");
