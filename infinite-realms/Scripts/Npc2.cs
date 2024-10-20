@@ -17,7 +17,7 @@ public partial class Npc2 : CharacterBody2D
 
 	public override void _Ready()
 	{
-		GD.Print(Flags.GetFlag("failed2"));
+		//GD.Print(Flags.GetFlag("failed2"));
 		base._Ready();
 		// Get Nodes
 		player = GetNode<MainCharacter>("../Grandpa");
@@ -68,6 +68,7 @@ public partial class Npc2 : CharacterBody2D
 			{
 				chatBox.Visible = false;
 				userInput.Visible = true;
+				userInput.GrabFocus();
 			} else
 			{
 				userInput.Visible = false;
@@ -106,15 +107,23 @@ public partial class Npc2 : CharacterBody2D
 	
 	public void OnLineEditTextSubmitted(string text)
 	{
-		reaction = "";
-		llmDialogue = "";
 		GD.Print(text);
 		userInput.Visible = false;
 		userInput.Clear();
 		chatBox.Visible = true;
 		chatBox.NextScript();
-		userInput.Call("start_wizard", text);
-		llmAvailable = false;
+		
+		if(checkBlacklist(text))
+		{
+			chatBox.updateDialogue("Asking it so directly, how dishonorable");
+		}
+		else
+		{
+			reaction = "";
+			llmDialogue = "";
+			userInput.Call("start_wizard", text);
+			llmAvailable = false;
+		}
 	}
 	
 	public void OnGdllamaUpdated(string text)
@@ -135,5 +144,17 @@ public partial class Npc2 : CharacterBody2D
 	public void OnGdllamaAvailable(bool finished)
 	{
 		llmAvailable = true;
+	}
+	
+	private bool checkBlacklist(string text)
+	{
+		foreach(string each in chatBox.blacklist)
+		{
+			if(text.ToLower().Contains(each))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 }

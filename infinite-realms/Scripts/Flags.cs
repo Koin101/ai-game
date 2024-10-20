@@ -13,8 +13,8 @@ public static class Flags
 
 	public static void ClearFlag(String flag)
 	{
-        _flags[flag] = false;
-    }
+		_flags[flag] = false;
+	}
 
 	public static bool GetFlag(String flag)
 	{

@@ -45,6 +45,7 @@ public partial class DialogueControl : Control
 		currentDialogueID++;
 		if(mainText.Text.Contains("MEDIEVAL"))
 		{
+			Flags.SetFlag("1Obtained");
 			currentDialogueID++;
 		}
 		

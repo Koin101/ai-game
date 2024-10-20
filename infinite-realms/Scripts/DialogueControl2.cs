@@ -10,6 +10,7 @@ public partial class DialogueControl2 : Control
 	public int currentDialogueID;
 	public RichTextLabel mainText;
 	public TextureRect moreTextIndicator;
+	public string[] blacklist = {"password", "pw", "secret"};
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -37,7 +38,16 @@ public partial class DialogueControl2 : Control
 	public void StartDialogue()
 	{
 		currentDialogueID = -1;
-		NextScript();
+		if(Flags.GetFlag("1Obtained"))
+		{
+			NextScript();
+		}
+		else
+		{
+			NextScript();
+			updateDialogue("First talk to the grand wizard\n You are not ready to talk to me.");
+			currentDialogueID = dialogue.Count;
+		}
 	}
 
 	public bool NextScript()

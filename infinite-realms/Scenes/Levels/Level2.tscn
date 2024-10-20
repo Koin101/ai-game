@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://rpddhisvuadb"]
+[gd_scene load_steps=7 format=4 uid="uid://rpddhisvuadb"]
 
 [ext_resource type="Texture2D" uid="uid://bollq8g1ipjs2" path="res://Assets/LevelBackgrounds/DessertBackground1.png" id="1_8wviv"]
 [ext_resource type="TileSet" uid="uid://dhuc2415b23j1" path="res://Assets/TileSets/TilesAndProps.tres" id="2_vvsog"]
 [ext_resource type="PackedScene" uid="uid://cwi8a7528q1rr" path="res://Scenes/samurai.tscn" id="3_oppry"]
 [ext_resource type="PackedScene" uid="uid://7a6e1vq2yr1x" path="res://Scenes/portal.tscn" id="4_bjcyr"]
 [ext_resource type="AudioStream" uid="uid://dqextl15f7uch" path="res://Assets/Sounds/Music/Barren Horizons.mp3" id="5_cvkcq"]
+[ext_resource type="PackedScene" uid="uid://cjtp7e311ma0j" path="res://Scenes/chest.tscn" id="6_1iqmh"]
 
 [node name="Level1" type="Node2D"]
 
@@ -48,3 +49,8 @@ autoplay = true
 position = Vector2(1801, 958)
 scale = Vector2(2.5, 2.5)
 Password = "foxtrot"
+
+[node name="Chest" parent="." instance=ExtResource("6_1iqmh")]
+position = Vector2(1529, 981)
+scale = Vector2(0.2, 0.2)
+hintText = "Honor is important"
