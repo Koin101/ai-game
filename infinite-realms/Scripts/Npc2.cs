@@ -7,7 +7,7 @@ public partial class Npc2 : CharacterBody2D
 	public string llmDialogue = "";
 	public bool llmAvailable = true;
 	public MainCharacter player;
-	public DialogueControl chatBox;
+	public DialogueControl2 chatBox;
 	public LineEdit userInput;
 	public Sprite2D keyIndicator;
 	Area2D chatDetect;
@@ -17,10 +17,11 @@ public partial class Npc2 : CharacterBody2D
 
 	public override void _Ready()
 	{
+		GD.Print(Flags.GetFlag("failed2"));
 		base._Ready();
 		// Get Nodes
 		player = GetNode<MainCharacter>("../Grandpa");
-		chatBox = GetNode<DialogueControl>("DialogueBox");
+		chatBox = GetNode<DialogueControl2>("DialogueBox");
 		chatDetect = GetNode<Area2D>("Chatdetection");
 		keyIndicator = GetNode<Sprite2D>("KeyIndicator");
 		//var sounds = this.FindChildren("*", "AudioStreamPlayer2D");
@@ -62,7 +63,7 @@ public partial class Npc2 : CharacterBody2D
 				player.EnterChatMode();
 				chatBox.StartDialogue();
 				chatBox.Visible = true;
-				PlaySpeakingSound();
+				//PlaySpeakingSound();
 			} else if(chatBox.currentDialogueID == 1)
 			{
 				chatBox.Visible = false;
@@ -77,7 +78,8 @@ public partial class Npc2 : CharacterBody2D
 					isChatting = false;
 				} else
 				{
-					PlaySpeakingSound();
+					GD.Print("yessir");
+					//PlaySpeakingSound();
 				}
 			}
 		}

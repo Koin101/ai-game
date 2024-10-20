@@ -90,4 +90,5 @@ position = Vector2(294, 1002)
 scale = Vector2(0.2, 0.2)
 
 [node name="CharacterBody2D2" parent="." instance=ExtResource("10_lrri8")]
-position = Vector2(380, 635)
+position = Vector2(380, 623)
+scale = Vector2(1.5, 1.5)

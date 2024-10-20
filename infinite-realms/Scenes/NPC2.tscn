@@ -57,6 +57,7 @@ position = Vector2(-9, 4)
 scale = Vector2(0.125, 0.125)
 sprite_frames = SubResource("SpriteFrames_xjelv")
 animation = &"idle"
+autoplay = "idle"
 frame_progress = 0.467258
 flip_h = true
 
