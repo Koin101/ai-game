@@ -30,4 +30,7 @@ For specific explanation it is best to watch the video. But it boils down to usi
 
 In the end we did not choose to use this way of generating the levels. As you can see in the levels above there are some visual artifacts and they are a bit bland. It was very hard to create a level with objects in the background. Thus leading to little depth in the image. So we changed gears.
 
+Name exact models used etc.
+
 ### Second Idea
+We wanted more detail and depth for our levels. So instead of generating an image around the level we turned it around and designed the level after generating an image. We came across a very cool pixel like SD2.1 model named [PIXHELL](https://civitai.com/models/21276/pixhell). The game is played with a resolution of 1920x1080
