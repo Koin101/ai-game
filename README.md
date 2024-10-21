@@ -37,7 +37,7 @@ We wanted more detail and depth for our levels. So instead of generating an imag
 ![Level1](./infinite-realms/Assets/LevelBackgrounds/FuturisticApocolypsWorld.png)
 This was great and in our opinion a better level design then using controlnet. However it is not always easy to get platforms to generate. For level 2 we created a desert like landscape, which as you can imagine usually does not come with some form of platforms. 
 For our final level we generated an image of some "alien" like planet with multiple suns, here there were also no platforms generated but there were a lot of rock like structures. So instead of creating our own platforms we just used these rock like structures. Both levels displayed below.
-![Level2](./infinte-realms/Assets/LevelBackgrounds/DessertBackground1.png)
-![Level3](./infinte-realms/Assets/LevelBackgrounds/WeirdAlienPlanet.png)
+![Level2](./infinite-realms/Assets/LevelBackgrounds/DessertBackground1.png)
+![Level3](./infinite-realms/Assets/LevelBackgrounds/WeirdAlienPlanet.png)
 
 The problem with how we made platforms in level 1 and level 3 is that it is difficult to see what are platforms and what are no platforms. Since it is completey blended in with the background. So there is no depth between the platforms and the background. So both methods of generating levels has its pro's and con's. We chose for the second idea since it provided way more interesting level design + the added dificulty of discovering where there are platforms also added to the gameplay.
