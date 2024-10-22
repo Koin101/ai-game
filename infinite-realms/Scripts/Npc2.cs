@@ -24,12 +24,12 @@ public partial class Npc2 : CharacterBody2D
 		chatBox = GetNode<DialogueControl2>("DialogueBox");
 		chatDetect = GetNode<Area2D>("Chatdetection");
 		keyIndicator = GetNode<Sprite2D>("KeyIndicator");
-		//var sounds = this.FindChildren("*", "AudioStreamPlayer2D");
+		var sounds = this.FindChildren("*", "AudioStreamPlayer2D");
 		userInput = GetNode<LineEdit>("LineEdit");
-		//foreach (var sound in sounds)
-		//{
-		//	_sounds.Add(sound.Name, (AudioStreamPlayer2D)sound);
-		//}
+		foreach (var sound in sounds)
+		{
+			_sounds.Add(sound.Name, (AudioStreamPlayer2D)sound);
+		}
 
 		chatBox.Visible = false;
 		keyIndicator.Visible = false;
@@ -63,7 +63,7 @@ public partial class Npc2 : CharacterBody2D
 				player.EnterChatMode();
 				chatBox.StartDialogue();
 				chatBox.Visible = true;
-				//PlaySpeakingSound();
+				PlaySpeakingSound();
 			} else if(chatBox.currentDialogueID == 1)
 			{
 				chatBox.Visible = false;
@@ -80,7 +80,7 @@ public partial class Npc2 : CharacterBody2D
 				} else
 				{
 					GD.Print("yessir");
-					//PlaySpeakingSound();
+					PlaySpeakingSound();
 				}
 			}
 		}
