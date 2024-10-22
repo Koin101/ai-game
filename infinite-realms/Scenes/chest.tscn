@@ -37,6 +37,8 @@ script = ExtResource("1_k5xad")
 [node name="OpenCloseAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_s6yvy")
 animation = &"Chest"
+frame = 1
+frame_progress = 0.592725
 
 [node name="ChestArea" type="Area2D" parent="."]
 
@@ -45,7 +47,7 @@ position = Vector2(-6.5, 38.5)
 shape = SubResource("RectangleShape2D_yoi0y")
 
 [node name="KeyIndicator" type="Sprite2D" parent="."]
-position = Vector2(-13, -275)
+position = Vector2(-3, -275)
 scale = Vector2(6.48611, 6.1875)
 texture = ExtResource("3_gwe5w")
 hframes = 5
@@ -62,16 +64,15 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -187.0
-offset_top = -295.0
-offset_right = 183.0
-offset_bottom = -28.0
+offset_left = -201.0
+offset_top = -440.0
+offset_right = 256.0
+offset_bottom = -52.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 theme = ExtResource("5_koqhl")
 theme_override_font_sizes/normal_font_size = 48
-text = "dfadf"
 visible_characters = 0
 visible_ratio = 0.0
 

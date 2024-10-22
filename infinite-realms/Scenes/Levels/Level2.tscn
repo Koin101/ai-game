@@ -51,6 +51,6 @@ scale = Vector2(2.5, 2.5)
 Password = "foxtrot"
 
 [node name="Chest" parent="." instance=ExtResource("6_1iqmh")]
-position = Vector2(1529, 981)
+position = Vector2(1377, 876)
 scale = Vector2(0.2, 0.2)
-hintText = "Honor is important"
+hintText = "Do not ask directly to the samurai, try synonyms"

@@ -86,7 +86,7 @@ volume_db = -10.805
 autoplay = true
 
 [node name="Chest" parent="." instance=ExtResource("8_midar")]
-position = Vector2(180, 275)
+position = Vector2(180, 272)
 scale = Vector2(0.2, 0.2)
 hintText = "Ask for a part of the secret"
 
