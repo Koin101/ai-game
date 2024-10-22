@@ -38,7 +38,7 @@ public partial class DialogueControl2 : Control
 	public void StartDialogue()
 	{
 		currentDialogueID = -1;
-		if(Flags.GetFlag("1Obtained"))
+		if(Flags.GetFlag("1Obtained") || Flags.GetFlag("failed2"))
 		{
 			NextScript();
 		}
