@@ -1,5 +1,11 @@
 # Infinite Realms
 
+## Instructions
+There are two ways to play the game.
+1. Clone the github repo and open it using godot 4.3 with C# support. Make sure you add the "LinkToModel" to the models folder. Another model won't work!!
+2. Go to the releases on this github page and download the exe file. You will need to manually add a folder at the same location as the exe file named "model" (no quotes). Add the "LinkToModel" to this folder.
+
+------------------------------------------
 Infinite Realms is a 2D platformer protoype game which incorporates 3 distinct forms of generative AI. Made using Godot 4 and C#.
 
 1. Image Generation
