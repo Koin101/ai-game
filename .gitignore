@@ -25,3 +25,4 @@ infinite-realms/llama.log
 *.log
 infinite-realms/.vs/Infinite Realms/DesignTimeBuild/.dtbcache.v2
 *.v2
+*.gguf

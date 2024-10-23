@@ -53,4 +53,4 @@ Password = "foxtrot"
 [node name="Chest" parent="." instance=ExtResource("6_1iqmh")]
 position = Vector2(1377, 876)
 scale = Vector2(0.2, 0.2)
-hintText = "Do not ask directly to the samurai, try synonyms"
+hintText = "A samurai only shares their secrets with another of their kind"
