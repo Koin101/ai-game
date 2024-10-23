@@ -11,6 +11,7 @@
   - [Sound Generation](#sound-generation)
     - [Sound Effects](#sound-effects)
     - [Music](#music)
+  - [Contributions](#Contributions)
 
 ## Instructions
 There are two ways to play the game.
@@ -109,3 +110,16 @@ The game includes 5 music tracks which are played throughout the game. These mus
 |Restoration Dawn | End screen | Create a chiptune track with deep synths and light arpeggios, evoking relief and triumph as a futuristic world is restored.|
 
 </details>
+
+## Contributions
+We have all contributed to the code of the game (which was not AI generated), but we split most of the AI generation tasks evenly, with the others giving feedbback and helping where needed.
+
+| Task  | Person | 
+| ------------- | ------------- | 
+| Coding | Everyone |
+| Backgrounds and Level Design | Koen |
+| Character Sprites and Animations | Bart |
+| Object Sprites | Koen & Bart |
+| Sound Effects and Music | Ruben |
+| NPC Dialogue and LLM prompts | Bart & Ruben |
+| Story Text | Koen |
