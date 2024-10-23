@@ -37,7 +37,6 @@ script = ExtResource("1_k5xad")
 [node name="OpenCloseAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_s6yvy")
 animation = &"Chest"
-frame = 1
 frame_progress = 0.592725
 
 [node name="ChestArea" type="Area2D" parent="."]
