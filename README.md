@@ -6,7 +6,7 @@ There are two ways to play the game.
 2. Go to the releases on this github page and download the exe file. You will need to manually add a folder at the same location as the exe file named "model" (no quotes). Add the "LinkToModel" to this folder.
 
 ------------------------------------------
-Infinite Realms is a 2D platformer protoype game which incorporates 3 distinct forms of generative AI. Made using Godot 4 and C#.
+Infinite Realms is a 2D platformer protoype game which incorporates 3 distinct forms of generative AI. Made using Godot 4.3 and C#.
 
 1. Image Generation
 Within the game we used StableDiffusion to generate level backgrounds, character sprites and animations, and game objects. 
@@ -28,7 +28,7 @@ The first step is that you build a platform level in godot using a tilemap (pref
 
 Now we can generate a level image using StableDiffusion and ControlNet. 
 
-For specific explanation it is best to watch the video. But it boils down to using txt2img with the generated template in controlnet. All you need to do is think of a theme for your level and hit generate. It ussually takes quite some generation and som tweaking of the settings to get a nice image. Some example levels that we generated are shown below. (these generated using 2 different templates)
+For specific explanation it is best to watch the video. But it boils down to using txt2img with the generated template in controlnet. All you need to do is think of a theme for your level and hit generate. It usually takes quite some generation and som tweaking of the settings to get a nice image. Some example levels that we generated are shown below. (these generated using 2 different templates)
 ![Level1ViaTemplate](./infinite-realms/Assets/LevelBackgrounds/Level1.png)
 ![Level2ViaTemplate](./infinite-realms/Assets/LevelBackgrounds/Level2.png)
 ![Level1.2ViaTemplate](./infinite-realms/Assets/LevelBackgrounds/00025-2195908195.png)
@@ -48,9 +48,20 @@ Level 2:
 Level 3:
 ![Level3](./infinite-realms/Assets/LevelBackgrounds/WeirdAlienPlanet.png)
 
+### Platform generation
 The problem with how we made platforms in level 1 and level 3 is that it is difficult to see what are platforms and what are no platforms. Since it is completey blended in with the background. So there is no depth between the platforms and the background. So both methods of generating levels has its pro's and con's. We chose for the second idea since it provided way more interesting level design + the added dificulty of discovering where there are platforms also added to the gameplay.
 
 So for level 2 we still had to create our own platform. While we could have used premade tilesets, we wanted to try and see if we could generate plaforms or some sort of tilemap using StableDiffusion. This time we used img2img where we made a sketch of a platform with some specific colours and then generate an image. 
+A sketch would look something like this:
+![SketchOfPlatform](./ReadMeExtraImages/SketchPlatform.png)
+Some of the platforms we generated look like this:
+![SketchToPlatform1](./infinite-realms/Assets/TileSets/BrickTileSet.png)
+![SketchToPlatform2](./infinite-realms//Assets/TileSets/DirtAndStoneTileSet.png)
+
+This looks actually pretty decent but the problem is converting these images to usabel sprites within godot. Normally in a tileset a object e.g. a platform is split into chunks of x by x pixels. This way you can create bigger objects, say you have a platform split into 3 chunks: 0, 1, 2. You can make platforms of different sizes -> 012, 011112, 0111111112. To make this work you need to make sure that the texture of such a middle part will always nicely flow over into a start and end part. Which is difficult to do consistently using StableDiffusion. Another difficulty is the fact that it is hard to generate a platform that fits nicely into the theme of your background. This can be seen in Level 2.
+![Level2Screenshot](./ReadMeExtraImages/Level2Screenshot.png)
+
+### Character generation and Animation
 
 ## Sound Generation
 The game includes various sound effects and music tracks to enhance the immersion of the game, all of which were generated using AI.
