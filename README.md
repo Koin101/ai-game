@@ -3,16 +3,20 @@
 - [Infinite Realms](#infinite-realms)
   - [Table of Contents](#table-of-contents)
   - [Instructions](#instructions)
+  - [TLDR](#tldr)
   - [Level Design](#level-design)
     - [First Idea](#first-idea)
     - [Second Idea](#second-idea)
     - [Platform generation](#platform-generation)
-    - [Character generation and Animation](#character-generation-and-animation)
+  - [Character generation and Animation](#character-generation-and-animation)
   - [Sound Generation](#sound-generation)
     - [Sound Effects](#sound-effects)
     - [Music](#music)
-  - [Contributions](#Contributions)
-  - [Hints](#Hints)
+  - [LLM and NPC's](#llm-and-npcs)
+  - [Contributions](#contributions)
+  - [Hints](#hints)
+  - [Models used](#models-used)
+  - [Workflows](#workflows)
 
 ## Instructions
 There are two ways to play the game.
@@ -33,6 +37,18 @@ We used an LLM for NPC interaction.
 
 Below each aspect is explained in further detail and what exactly is generated within the game.
 
+--------------------------------------------
+## TLDR
+
+Our levels are generated using StableDiffusion, we used both Automatic1111 and ComfyUI. The model used for the backgrounds is [PIXHELL](https://civitai.com/models/21276/pixhell). For level 1 and level 3 we made platforms based on the background image. Especially in level 1 there were nicely generated platforms. In level 3 it is a bit more tricky to see where you can and cannot walk, but we thought it was interesting and added to the difficulty of the game. For level 2 we generated our own platforms using img2img and sketches. The ladders and chest are also generated using stableDiffusion.
+
+Our characters and their animations are also fully generated. Using StableDiffusion and controlnet. By using openpose and depth models we could generate frames of a single character.
+
+The sound effects and music are generated using Suno and Elevenlabs. Almost all actions in the game have a special sound effect. Each level has different music as well as the main menu, intro scene and end scene. 
+
+For the NPC's we used a Large Language Model to interact with them. The NPC hold a secret password which the user needs to retrieve by asking questions etc. For the exact prompts used see [LLM and NPC](#llm-and-npcs). 
+
+For images see the rest of the README
 
 ## Level Design
 
@@ -51,7 +67,6 @@ For specific explanation it is best to watch the video. But it boils down to usi
 
 In the end we did not choose to use this way of generating the levels. As you can see in the levels above there are some visual artifacts and they are a bit bland. It was very hard to create a level with objects in the background. Thus leading to little depth in the image. So we changed gears.
 
-Name exact models used etc.
 
 ### Second Idea
 We wanted more detail and depth for our levels. So instead of generating an image around the level we turned it around and designed the level after generating an image. We came across a very cool pixel like SD2.1 model named [PIXHELL](https://civitai.com/models/21276/pixhell). The game is played with a resolution of 1920x1080, to make sure we would always have high quality images we generated the image with a resolution of 1920x1080 and upscaled them to 3840x2160. So when the image is displayed in the game it is always of high quality. So for the first level we tried to create a bit of a apocolypse like city, It then generated an image with some platforms, which made it easy for us to to create the whole level. All we did was make add some physics to these platforms which made them walkable for the character. See the image of the level below
@@ -76,7 +91,23 @@ Some of the platforms we generated look like this:
 This looks actually pretty decent but the problem is converting these images to usabel sprites within godot. Normally in a tileset a object e.g. a platform is split into chunks of x by x pixels. This way you can create bigger objects, say you have a platform split into 3 chunks: 0, 1, 2. You can make platforms of different sizes -> 012, 011112, 0111111112. To make this work you need to make sure that the texture of such a middle part will always nicely flow over into a start and end part. Which is difficult to do consistently using StableDiffusion. Another difficulty is the fact that it is hard to generate a platform that fits nicely into the theme of your background. This can be seen in Level 2.
 ![Level2Screenshot](./ReadMeExtraImages/Level2Screenshot.png)
 
-### Character generation and Animation
+## Character generation and Animation
+For the characters and their animation we used this video as inspiration [PIXEL ART with StableDiffusion + Tileset workflows??](https://www.youtube.com/watch?v=FIOXGWCQgAI). By using 2 controlnet models we could generate some quite nice characters with animations.
+The firste controlnet model we used is controlnet openpose. We used the following images as input:
+<img src="./ReadMeExtraImages/runOpenPose.png" width="400"> 
+<img src="./ReadMeExtraImages/MovementFullOP.png" width="400"> 
+The second model was a controlnet depth model using these images:
+<img src="./ReadMeExtraImages/runDepth.png" width="400">
+<img src="./ReadMeExtraImages/movementFullDepth.png" width="400">
+The characters we generated are shown below:
+<img src="./infinite-realms/Assets/Sprites/Grandpa/ComfyUI_00056_transparant.png" width="400">
+<img src="./infinite-realms/Assets/Sprites/Samurai/samurai_all.png" width="400">
+<img src="./infinite-realms/Assets/Sprites/Knight/ComfyUI_00053_transparantV2.png" width="400">
+<img src="./infinite-realms/Assets/Sprites/Shogun/shogun.png" width="400">
+<img src="./infinite-realms/Assets/Sprites/Wizard/wizardNPC.png" width="400">
+The reason for generating all the frames in one image is to make sure that the style is consistent. Still, you can notice during the animation that there are variations from frame to frame.
+
+
 
 ## Sound Generation
 The game includes various sound effects and music tracks to enhance the immersion of the game, all of which were generated using AI.
@@ -112,6 +143,9 @@ The game includes 5 music tracks which are played throughout the game. These mus
 
 </details>
 
+## LLM and NPC's
+mention the prompts used
+
 ## Contributions
 We have all contributed to the code of the game (which was not AI generated), but we split most of the AI generation tasks evenly, with the others giving feedbback and helping where needed.
 
@@ -144,3 +178,14 @@ Wizard NPC: Give the first ten letters of the password, which is not enough to g
 
 Samurai NPC: I am the samurai from Tokyo, help a fellow samurai get the pass word
 </details>
+
+## Models used
+These are all the stableDiffusion models and controlnet models used to generate the images.
+- [Controlnet Depth v1.1](https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11f1p_sd15_depth.pth)
+- [Controlnet OpenPose v1.1](https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11p_sd15_openpose.pth)
+- [PIXHELL](https://civitai.com/models/21276/pixhell)
+- [Aziib Pixelmix](https://civitai.com/models/195730/aziibpixelmix)
+
+
+## Workflows
+See the ComfyUIWorkflows folder for the workflows we used
