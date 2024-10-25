@@ -244,6 +244,7 @@ These are all the stableDiffusion models and controlnet models used to generate 
 - [Phi 3 mini 4k Instruct](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf/blob/main/Phi-3-mini-4k-instruct-q4.gguf)
 - [Medieval Style Armor Lora](https://civitai.com/models/59925/medieval-style-armor-suit-lora)
 - [Samurai Armor Japan Lora](https://civitai.com/models/83476/samurai-armor-japan-traditional-dress-series)
+- [Wizard Clothing](https://civitai.com/models/843407/wizard-clothing)
 
 
 ## Workflows
