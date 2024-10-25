@@ -92,19 +92,31 @@ This looks actually pretty decent but the problem is converting these images to 
 ![Level2Screenshot](./ReadMeExtraImages/Level2Screenshot.png)
 
 ## Character generation and Animation
-For the characters and their animation we used this video as inspiration [PIXEL ART with StableDiffusion + Tileset workflows??](https://www.youtube.com/watch?v=FIOXGWCQgAI). By using 2 controlnet models we could generate some quite nice characters with animations.
-The firste controlnet model we used is controlnet openpose. We used the following images as input:
-<img src="./ReadMeExtraImages/runOpenPose.png" width="400"> 
+For the playable characters and their animation we used this video as inspiration [PIXEL ART with StableDiffusion + Tileset workflows??](https://www.youtube.com/watch?v=FIOXGWCQgAI). By using 2 controlnet models we could generate some quite nice characters with animations.
+The first controlnet model we used is controlnet openpose. We used the following image as input:
+
 <img src="./ReadMeExtraImages/MovementFullOP.png" width="400"> 
-The second model was a controlnet depth model using these images:
-<img src="./ReadMeExtraImages/runDepth.png" width="400">
+
+The second model was a controlnet depth model using these image:
+
 <img src="./ReadMeExtraImages/movementFullDepth.png" width="400">
-The characters we generated are shown below:
+
+The playable characters we generated are shown below:
+
 <img src="./infinite-realms/Assets/Sprites/Grandpa/ComfyUI_00056_transparant.png" width="400">
 <img src="./infinite-realms/Assets/Sprites/Samurai/samurai_all.png" width="400">
 <img src="./infinite-realms/Assets/Sprites/Knight/ComfyUI_00053_transparantV2.png" width="400">
+
+For the playable characters it was very important that they were consistent while in idle position, running and jumping. For the NPCs on the other hand, only their idle position was important.
+The depth model above makes for good consistency, but unfortunately also makes very generic characters. Therefore for the NPCs we only used the openpose controlnet with the following image as input:
+
+<img src= "./ReadMeExtraImages/idleOpenpose.png" width="400">
+
+This resulted in the following two NPCs, the shogun and the wizard.
+
 <img src="./infinite-realms/Assets/Sprites/Shogun/shogun.png" width="400">
 <img src="./infinite-realms/Assets/Sprites/Wizard/wizardNPC.png" width="400">
+
 The reason for generating all the frames in one image is to make sure that the style is consistent. Still, you can notice during the animation that there are variations from frame to frame.
 
 
