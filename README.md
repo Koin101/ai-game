@@ -3,6 +3,7 @@
 - [Infinite Realms](#infinite-realms)
   - [Table of Contents](#table-of-contents)
   - [Instructions](#instructions)
+  - [Intro](#intro)
   - [TLDR](#tldr)
   - [Level Design](#level-design)
     - [First Idea](#first-idea)
@@ -13,6 +14,7 @@
     - [Sound Effects](#sound-effects)
     - [Music](#music)
   - [LLM and NPC's](#llm-and-npcs)
+  - [Intro and Outro Text](#intro-and-outro-text)
   - [Contributions](#contributions)
   - [Hints](#hints)
   - [Models used](#models-used)
@@ -21,9 +23,10 @@
 ## Instructions
 There are two ways to play the game.
 1. Clone the github repo and open it using godot 4.3 with C# support. Make sure you add the [Llama 3 8B model](https://huggingface.co/QuantFactory/Meta-Llama-3-8B-Instruct-GGUF/blob/main/Meta-Llama-3-8B-Instruct.Q4_0.gguf) to the models folder. Another model won't work!! Launch the game via godot, play button top right.
-2. Go to the releases on this github page and download the exe file. Add the [Llama 3 8B model](https://huggingface.co/QuantFactory/Meta-Llama-3-8B-Instruct-GGUF/blob/main/Meta-Llama-3-8B-Instruct.Q4_0.gguf) to the models folder.
+2. Go to the releases on this github page and download the zip file. Add the [Llama 3 8B model](https://huggingface.co/QuantFactory/Meta-Llama-3-8B-Instruct-GGUF/blob/main/Meta-Llama-3-8B-Instruct.Q4_0.gguf) to the models folder.
 
 ------------------------------------------
+## Intro
 Infinite Realms is a 2D platformer protoype game which incorporates 3 distinct forms of generative AI. Made using Godot 4.3 and C#.
 
 1. Image Generation
@@ -175,16 +178,31 @@ The two NPCs in the game are a Wizard and a Samurai. Too satisfy both requiremen
 
 </details>
 
+## Intro and Outro Text
+The intro text and outro text are generated using chatGPT (free version). Since this is only a prototype the text generated and thus the story plot is not in line with the game.
+<details>
+  <summary> Prompt for the intro and outro </summary>
+For the intro text we used the following prompts:
+
+- You are a narrator in a fantasy game world. In this game the main character is a interdimensonial 
+traveller trying to find a cure to help their home world. Write a small intro story and tell the player 
+the goal of the game
+
+Using the same chat as before the end text was generated simply by asking:
+
+- Can you generate a short end story for when you finish the game?
+
+</details>
 
 
 ## Contributions
-We have all contributed to the code of the game (which was not AI generated), but we split most of the AI generation tasks evenly, with the others giving feedbback and helping where needed.
+We have all contributed to the code of the game (which was not AI generated), but we split most of the AI generation tasks evenly, with the others giving feedback and helping where needed.
 
 | Task  | Person | 
 | ------------- | ------------- | 
 | Coding | Everyone |
 | Backgrounds and Level Design | Koen |
-| Character Sprites and Animations | Bart & Koen |
+| Character Sprites and Animations | Bart |
 | Object Sprites | Koen & Bart |
 | Sound Effects and Music | Ruben |
 | NPC Dialogue and LLM prompts | Bart & Ruben |
