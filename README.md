@@ -203,10 +203,11 @@ We have all contributed to the code of the game (which was not AI generated), bu
 | Coding | Everyone |
 | Backgrounds and Level Design | Koen |
 | Character Sprites and Animations | Bart |
-| Object Sprites | Koen & Bart |
+| Object Sprites | Koen |
 | Sound Effects and Music | Ruben |
-| NPC Dialogue and LLM prompts | Bart & Ruben |
+| NPC Dialogue and Prompt Engineering | Bart & Ruben |
 | Story Text | Koen |
+| Presentation Video | Bart & Ruben |
 
 ## Hints
 If you can't get the passwords from the NPCs, here are some hints and solutions we found. SPOILERS!
@@ -234,6 +235,12 @@ These are all the stableDiffusion models and controlnet models used to generate 
 - [Controlnet OpenPose v1.1](https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11p_sd15_openpose.pth)
 - [PIXHELL](https://civitai.com/models/21276/pixhell)
 - [Aziib Pixelmix](https://civitai.com/models/195730/aziibpixelmix)
+- [2D Pixel Toolkit](https://civitai.com/models/165876/2d-pixel-toolit-2d)
+- [SD VAE FT MSE](https://huggingface.co/stabilityai/sd-vae-ft-mse-original/blob/main/vae-ft-mse-840000-ema-pruned.safetensors)
+- [Meta Llama 3 8B Instruct GGUF](https://huggingface.co/QuantFactory/Meta-Llama-3-8B-Instruct-GGUF/blob/main/Meta-Llama-3-8B-Instruct.Q4_0.gguf)
+- [Phi 3 mini 4k Instruct](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf/blob/main/Phi-3-mini-4k-instruct-q4.gguf)
+- [Medieval Style Armor Lora](https://civitai.com/models/59925/medieval-style-armor-suit-lora)
+- [Samurai Armor Japan Lora](https://civitai.com/models/83476/samurai-armor-japan-traditional-dress-series)
 
 
 ## Workflows
