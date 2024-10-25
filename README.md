@@ -89,12 +89,16 @@ The problem with how we made platforms in level 1 and level 3 is that it is diff
 
 So for level 2 we still had to create our own platform. While we could have used premade tilesets, we wanted to try and see if we could generate plaforms or some sort of tilemap using StableDiffusion. This time we used img2img where we made a sketch of a platform with some specific colours and then generate an image. 
 A sketch would look something like this:
+
 ![SketchOfPlatform](./ReadMeExtraImages/SketchPlatform.png)
+
 Some of the platforms we generated look like this:
+
 ![SketchToPlatform1](./infinite-realms/Assets/TileSets/BrickTileSet.png)
 ![SketchToPlatform2](./infinite-realms//Assets/TileSets/DirtAndStoneTileSet.png)
 
 This looks actually pretty decent but the problem is converting these images to usabel sprites within godot. Normally in a tileset a object e.g. a platform is split into chunks of x by x pixels. This way you can create bigger objects, say you have a platform split into 3 chunks: 0, 1, 2. You can make platforms of different sizes -> 012, 011112, 0111111112. To make this work you need to make sure that the texture of such a middle part will always nicely flow over into a start and end part. Which is difficult to do consistently using StableDiffusion. Another difficulty is the fact that it is hard to generate a platform that fits nicely into the theme of your background. This can be seen in Level 2.
+
 ![Level2Screenshot](./ReadMeExtraImages/Level2Screenshot.png)
 
 ## Character generation and Animation
