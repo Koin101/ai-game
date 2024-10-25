@@ -184,11 +184,12 @@ We have all contributed to the code of the game (which was not AI generated), bu
 | ------------- | ------------- | 
 | Coding | Everyone |
 | Backgrounds and Level Design | Koen |
-| Character Sprites and Animations | Bart & Koen |
-| Object Sprites | Koen & Bart |
+| Character Sprites and Animations | Bart |
+| Object Sprites | Koen |
 | Sound Effects and Music | Ruben |
-| NPC Dialogue and LLM prompts | Bart & Ruben |
+| NPC Dialogue and Prompt Engineering | Bart & Ruben |
 | Story Text | Koen |
+| Presentation Video | Bart & Ruben |
 
 ## Hints
 If you can't get the passwords from the NPCs, here are some hints and solutions we found. SPOILERS!
